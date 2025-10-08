@@ -1,0 +1,14 @@
+# 排除報價單（不推送到倉庫）
+docs/tech-brief-quote.html
+
+# 系統檔案
+.DS_Store
+Thumbs.db
+
+# 編輯器
+.vscode/
+.idea/
+
+# 暫存檔
+*.tmp
+*.bak
