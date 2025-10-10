@@ -1,44 +1,62 @@
 backend:
   name: git-gateway
   branch: main
+
+# 媒體檔案設定
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
+
+# 本地化設定
 i18n:
   structure: single_file
   locales: [zh-Hant]
+
+# CMS 顯示設定
+display_url: https://zzing.netlify.app
+logo_url: /assets/images-edit/logo-1.png
+
+# 編輯器設定
+editor:
+  preview: true
 
 collections:
   # 產品案例（以單一 JSON 管理清單，方便前端直接讀取）
   - label: "產品案例"
     name: "cases"
-    file: "content/cases.json"
-    fields:
-      - label: "案例列表"
-        name: "items"
-        widget: "list"
-        summary: "{{fields.title}}"
+    files:
+      - label: "案例資料"
+        name: "cases_data"
+        file: "content/cases.json"
         fields:
-          - { label: "標題", name: "title", widget: "string" }
-          - { label: "分類", name: "category", widget: "string", required: false }
-          - { label: "日期", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-          - { label: "縮圖", name: "image", widget: "image" }
-          - { label: "摘要", name: "excerpt", widget: "text" }
-          - { label: "詳情連結(可選)", name: "url", widget: "string", required: false }
+          - label: "案例列表"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "標題", name: "title", widget: "string" }
+              - { label: "分類", name: "category", widget: "string", required: false }
+              - { label: "日期", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "縮圖", name: "image", widget: "image" }
+              - { label: "摘要", name: "excerpt", widget: "text" }
+              - { label: "詳情連結(可選)", name: "url", widget: "string", required: false }
 
   # Blog 文章（同樣用 JSON 清單，提供完整發佈欄位）
   - label: "Blog"
     name: "blog"
-    file: "content/blog-data.json"
-    fields:
-      - label: "文章列表"
-        name: "items"
-        widget: "list"
-        summary: "{{fields.title}}"
+    files:
+      - label: "文章資料"
+        name: "blog_data"
+        file: "content/blog-data.json"
         fields:
-          - { label: "標題", name: "title", widget: "string" }
-          - { label: "作者", name: "author", widget: "string", default: "日日瀅生醫" }
-          - { label: "日期", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-          - { label: "縮圖", name: "image", widget: "image" }
-          - { label: "摘要", name: "excerpt", widget: "text" }
-          - { label: "詳情連結(可選)", name: "url", widget: "string", required: false }
+          - label: "文章列表"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "標題", name: "title", widget: "string" }
+              - { label: "作者", name: "author", widget: "string", default: "日日瀅生醫" }
+              - { label: "日期", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "縮圖", name: "image", widget: "image" }
+              - { label: "摘要", name: "excerpt", widget: "text" }
+              - { label: "詳情連結(可選)", name: "url", widget: "string", required: false }
 
