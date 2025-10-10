@@ -108,13 +108,18 @@
 
   <script>
     (function(){
-      fetch('content/blog-data.json?_=' + Date.now())
+      // 載入產品案例資料
+      fetch('content/cases.json?_=' + Date.now())
         .then(function(res){ return res.json(); })
         .then(function(data){
           var wrap = document.getElementById('blog-list');
           if(!wrap || !data || !data.items) return;
           var html = data.items.map(function(item){
-            var url = item.url || '#';
+            // 生成動態頁面連結
+            var dynamicUrl = 'case-detail.html?id=' + encodeURIComponent(item.category || item.title);
+            // 如果有原始 URL，優先使用原始 URL
+            var url = item.url || dynamicUrl;
+
             return '\n<div class="col-lg-4 col-md-6 about-in blog-grid-info text-left mt-5">\n' +
               '  <div class="card img">\n' +
               '    <div class="card-body img">\n' +
@@ -122,13 +127,14 @@
               '        <img src="' + item.image + '" alt="' + (item.title||'') + '" class="img-fluid radius-image">\n' +
               '      </a>\n' +
               '      <div class="blog-des mt-4">\n' +
-              '        <h6 class="card-cap mb-2"><a href="' + url + '">' + (item.author || '日日瀅生醫') + '</a></h6>\n' +
+              '        <h6 class="card-cap mb-2"><a href="' + url + '">' + (item.category || '產品案例') + '</a></h6>\n' +
               '        <h5 class="card-title mb-2"><a href="' + url + '">' + (item.title||'') + '</a></h5>\n' +
               '        <ul class="admin-post mb-3">\n' +
-              '          <li><span class="fa fa-user-o"></span><a href="#admin"> ' + (item.author || '日日瀅生醫') + '</a></li>\n' +
-              '          <li><p class="reviews">' + (item.date || '') + '</p></li>\n' +
+              '          <li><span class="fa fa-calendar"></span> ' + (item.date || '') + '</li>\n' +
+              '          <li><span class="fa fa-tag"></span> ' + (item.category || '') + '</li>\n' +
               '        </ul>\n' +
               '        <p>' + (item.excerpt||'') + '</p>\n' +
+              '        <a href="' + url + '" class="btn btn-primary btn-sm mt-2">查看詳情</a>\n' +
               '      </div>\n' +
               '    </div>\n' +
               '  </div>\n' +
@@ -136,7 +142,7 @@
           }).join('');
           wrap.innerHTML = html;
         })
-        .catch(function(err){ console.warn('Load blog failed', err); });
+        .catch(function(err){ console.warn('Load cases failed', err); });
     })();
   </script>
 

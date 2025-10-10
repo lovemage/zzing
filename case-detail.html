@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title id="page-title">案例詳情 - 日日瀅生醫</title>
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="assets/css/style-starter.css">
+  
+  <style>
+    .breadcrumb-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+    }
+    .breadcrumb-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.5);
+      z-index: 1;
+    }
+    .breadcrumb-bg .container {
+      position: relative;
+      z-index: 2;
+    }
+    .breadcrumb-bg .breadcrumbs-custom-path {
+      color: #333;
+    }
+    .breadcrumb-bg .breadcrumbs-custom-path li a {
+      color: #333;
+    }
+    .breadcrumb-bg .breadcrumbs-custom-path .fa {
+      color: #667eea;
+    }
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: #666;
+    }
+    .case-not-found {
+      text-align: center;
+      padding: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+<div class="header-w3l">
+<!--header-->
+<header id="site-header" class="header-w3l fixed-top">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg stroke">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images-edit/logo-1.png" alt="日日瀅生醫" style="height: 45px;">
+      </a>
+      <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+        data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ml-lg-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">關於我們</a></li>
+          <li class="nav-item active"><a class="nav-link" href="blog.html">產品案例 <span class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">代工服務</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">聯絡我們</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+</div>
+
+<!-- breadcrumb -->
+<section class="w3l-about-breadcrumb text-center breadcrumb-bg">
+  <div class="container">
+    <ul class="breadcrumbs-custom-path mt-3 pt-5">
+      <li><a href="index.html">首頁</a></li>
+      <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span> <a href="blog.html">產品案例</a></li>
+      <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span> <span id="breadcrumb-title">案例詳情</span></li>
+    </ul>
+    <h2 class="title text-center pt-3" id="hero-title">載入中...</h2>
+  </div>
+</section>
+<!-- //breadcrumb -->
+
+<!-- 載入中 -->
+<div id="loading" class="loading">
+  <h3>載入案例資料中...</h3>
+</div>
+
+<!-- 案例未找到 -->
+<div id="case-not-found" class="case-not-found" style="display: none;">
+  <h3>案例未找到</h3>
+  <p>抱歉，找不到您要查看的案例。</p>
+  <a href="blog.html" class="btn btn-primary">返回案例列表</a>
+</div>
+
+<!-- 案例內容 -->
+<div id="case-content" style="display: none;">
+  <section class="w3l-blog-single py-5">
+    <div class="container py-lg-4">
+      <div class="row">
+        <div class="col-lg-8 blog-post-main">
+          <div class="blog-post-content">
+            <img id="case-image" src="" alt="" class="img-fluid radius-image mb-4" />
+            
+            <div class="blog-post-meta mb-3">
+              <span class="meta-item"><i class="fa fa-calendar"></i> <span id="case-date"></span></span>
+              <span class="meta-item ml-3"><i class="fa fa-tag"></i> <span id="case-category"></span></span>
+            </div>
+            
+            <h3 id="case-title" class="mb-4"></h3>
+            
+            <div id="case-excerpt" class="mb-4"></div>
+            
+            <!-- 詳細內容區塊 -->
+            <div class="case-details">
+              <h4>專案概述</h4>
+              <p id="case-overview">此案例展示了我們在保健食品代工領域的專業能力，從配方設計到生產包裝，提供完整的一站式服務。</p>
+              
+              <h4>服務內容</h4>
+              <ul id="case-services">
+                <li>配方研發與優化</li>
+                <li>原料採購與品質控制</li>
+                <li>生產製造與包裝</li>
+                <li>品質檢驗與認證</li>
+                <li>法規諮詢與標示設計</li>
+              </ul>
+              
+              <h4>專案成果</h4>
+              <p id="case-results">透過我們的專業服務，客戶成功推出高品質的保健食品，獲得市場良好反響，建立了穩固的品牌信譽。</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 sidebar">
+          <div class="sidebar-widget">
+            <h4>相關案例</h4>
+            <div id="related-cases"></div>
+          </div>
+          
+          <div class="sidebar-widget">
+            <h4>聯絡我們</h4>
+            <p>對此案例有興趣？歡迎聯絡我們了解更多詳情。</p>
+            <a href="contact.html" class="btn btn-primary">立即諮詢</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Footer -->
+<footer class="w3l-footer-29-main">
+  <div class="footer-29 py-5">
+    <div class="container py-lg-4">
+      <div class="row footer-top-29">
+        <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
+          <div class="footer-logo mb-3">
+            <a class="navbar-brand" href="index.html">
+              <img src="assets/images-edit/logo-1.png" alt="日日瀅生醫" style="height: 40px; filter: brightness(0) invert(1);">
+            </a>
+          </div>
+          <p>專業保健食品代工服務，打造健康新世代，我們是您最堅實的代工夥伴。</p>
+          <ul class="mt-3">
+            <li><a href="tel:04-22017588"><span class="fa fa-phone"></span> 04-22017588</a></li>
+            <li><a href="mailto:info@babypharm.com.tw" class="mail"><span class="fa fa-envelope-open-o"></span> info@babypharm.com.tw</a></li>
+            <li><a href="#location" class=""><span class="fa fa-map-marker"></span> 台中市北區進化北路95號</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-sm-0 mt-5">
+          <ul>
+            <h6 class="footer-title-29">公司資訊</h6>
+            <li><a href="about.html">關於我們</a></li>
+            <li><a href="blog.html">產品案例</a></li>
+            <li><a href="services.html">代工服務</a></li>
+            <li><a href="contact.html">聯絡我們</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-3 mt-lg-0 mt-5">
+          <h6 class="footer-title-29">服務連結</h6>
+          <ul>
+            <li><a href="terms.html">服務條款</a></li>
+            <li><a href="privacy.html">隱私政策</a></li>
+            <li><a href="support.html">客戶支援</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
+          <h6 class="footer-title-29">聯絡資訊</h6>
+          <a href="#company" class="company-name">
+            <p class="mb-2"><span class="fa fa-map-marker"></span> 台中市北區進化北路95號</p>
+          </a>
+          <a href="tel:04-22017588" class="company-name">
+            <p class="mb-2"><span class="fa fa-phone"></span> 04-22017588</p>
+          </a>
+          <a href="mailto:info@babypharm.com.tw" class="company-name">
+            <p><span class="fa fa-envelope-open-o"></span> info@babypharm.com.tw</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Netlify Identity Widget -->
+<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!-- Netlify Identity 邀請處理 -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+<!-- 動態載入案例內容 -->
+<script>
+(function() {
+  // 從 URL 參數獲取案例 ID
+  const urlParams = new URLSearchParams(window.location.search);
+  const caseId = urlParams.get('id');
+  const caseFile = urlParams.get('file');
+
+  if (!caseId && !caseFile) {
+    showNotFound();
+    return;
+  }
+
+  // 如果有指定檔案，直接載入該檔案
+  if (caseFile) {
+    loadCaseFromFile(caseFile);
+    return;
+  }
+
+  // 否則從 cases.json 載入
+  fetch('content/cases.json?_=' + Date.now())
+    .then(res => res.json())
+    .then(data => {
+      const caseItem = data.items.find(item =>
+        item.title.includes(caseId) ||
+        item.url === 'case-' + caseId + '.html' ||
+        item.category === caseId
+      );
+
+      if (caseItem) {
+        displayCase(caseItem, data.items);
+      } else {
+        showNotFound();
+      }
+    })
+    .catch(err => {
+      console.error('載入案例資料失敗:', err);
+      showNotFound();
+    });
+
+  // 載入 Markdown 案例檔案
+  function loadCaseFromFile(filename) {
+    fetch(`content/cases/${filename}?_=` + Date.now())
+      .then(res => res.text())
+      .then(content => {
+        const caseData = parseMarkdownCase(content);
+        if (caseData) {
+          displayDetailedCase(caseData);
+        } else {
+          showNotFound();
+        }
+      })
+      .catch(err => {
+        console.error('載入案例檔案失敗:', err);
+        showNotFound();
+      });
+  }
+
+  // 解析 Markdown 案例檔案
+  function parseMarkdownCase(content) {
+    const frontMatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+    if (!frontMatterMatch) return null;
+
+    const frontMatter = frontMatterMatch[1];
+    const body = content.replace(/^---\n[\s\S]*?\n---\n/, '');
+
+    // 簡單的 YAML 解析
+    const data = {};
+    frontMatter.split('\n').forEach(line => {
+      const match = line.match(/^(\w+):\s*(.*)$/);
+      if (match) {
+        const key = match[1];
+        let value = match[2].replace(/^["']|["']$/g, '');
+        if (value === 'true') value = true;
+        if (value === 'false') value = false;
+        data[key] = value;
+      }
+    });
+
+    data.body = body;
+    return data;
+  }
+  
+  function displayCase(caseItem, allCases) {
+    // 隱藏載入中
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('case-content').style.display = 'block';
+
+    // 更新頁面標題
+    document.getElementById('page-title').textContent = caseItem.title + ' - 日日瀅生醫';
+    document.getElementById('hero-title').textContent = caseItem.title;
+    document.getElementById('breadcrumb-title').textContent = caseItem.title;
+
+    // 更新案例內容
+    document.getElementById('case-image').src = caseItem.image;
+    document.getElementById('case-image').alt = caseItem.title;
+    document.getElementById('case-title').textContent = caseItem.title;
+    document.getElementById('case-date').textContent = caseItem.date;
+    document.getElementById('case-category').textContent = caseItem.category;
+    document.getElementById('case-excerpt').textContent = caseItem.excerpt;
+
+    // 顯示相關案例
+    const relatedCases = allCases.filter(item => item.title !== caseItem.title).slice(0, 3);
+    const relatedHtml = relatedCases.map(item =>
+      `<div class="related-case mb-3">
+        <a href="case-detail.html?id=${encodeURIComponent(item.category)}" class="d-flex">
+          <img src="${item.image}" alt="${item.title}" style="width: 60px; height: 60px; object-fit: cover; margin-right: 10px;">
+          <div>
+            <h6 class="mb-1">${item.title}</h6>
+            <small class="text-muted">${item.category}</small>
+          </div>
+        </a>
+      </div>`
+    ).join('');
+    document.getElementById('related-cases').innerHTML = relatedHtml;
+  }
+
+  function displayDetailedCase(caseData) {
+    // 隱藏載入中
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('case-content').style.display = 'block';
+
+    // 更新頁面標題
+    document.getElementById('page-title').textContent = caseData.title + ' - 日日瀅生醫';
+    document.getElementById('hero-title').textContent = caseData.title;
+    document.getElementById('breadcrumb-title').textContent = caseData.title;
+
+    // 更新案例內容
+    document.getElementById('case-image').src = caseData.image;
+    document.getElementById('case-image').alt = caseData.title;
+    document.getElementById('case-title').textContent = caseData.title;
+    document.getElementById('case-date').textContent = caseData.date;
+    document.getElementById('case-category').textContent = caseData.category;
+    document.getElementById('case-excerpt').textContent = caseData.excerpt;
+
+    // 更新詳細內容
+    if (caseData.overview) {
+      document.getElementById('case-overview').innerHTML = caseData.overview.replace(/\n/g, '<br>');
+    }
+
+    if (caseData.results) {
+      document.getElementById('case-results').innerHTML = caseData.results.replace(/\n/g, '<br>');
+    }
+
+    // 更新服務內容（如果有的話）
+    if (caseData.services) {
+      // 這裡需要解析 YAML 格式的服務列表
+      // 簡化處理，直接顯示基本服務
+    }
+  }
+  
+  function showNotFound() {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('case-not-found').style.display = 'block';
+  }
+})();
+</script>
+
+</body>
+</html>

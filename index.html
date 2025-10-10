@@ -455,7 +455,11 @@
               var wrap = document.getElementById('cases-list');
               if(!wrap || !data || !data.items) return;
               var html = data.items.slice(0, 6).map(function(item){
-                var url = item.url || '#';
+                // 生成動態頁面連結
+                var dynamicUrl = 'case-detail.html?id=' + encodeURIComponent(item.category || item.title);
+                // 如果有原始 URL，優先使用原始 URL
+                var url = item.url || dynamicUrl;
+
                 return '\n<div class="col-lg-4 col-md-6 about-in blog-grid-info text-left mt-5">\n' +
                   '  <div class="card img">\n' +
                   '    <div class="card-body img">\n' +
@@ -466,8 +470,8 @@
                   '        <h6 class="card-cap mb-2"><a href="' + url + '">' + (item.category||'產品案例') + '</a></h6>\n' +
                   '        <h5 class="card-title mb-2"><a href="' + url + '">' + (item.title||'') + '</a></h5>\n' +
                   '        <ul class="admin-post mb-3">\n' +
-                  '          <li><span class="fa fa-user-o"></span><a href="#admin"> 日日瀅生醫</a></li>\n' +
-                  '          <li><p class="reviews">' + (item.date || '') + '</p></li>\n' +
+                  '          <li><span class="fa fa-calendar"></span> ' + (item.date || '') + '</li>\n' +
+                  '          <li><span class="fa fa-tag"></span> ' + (item.category || '') + '</li>\n' +
                   '        </ul>\n' +
                   '        <p>' + (item.excerpt||'') + '</p>\n' +
                   '      </div>\n' +
