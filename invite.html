@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>管理員邀請 - 日日瀅生醫</title>
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="assets/css/style-starter.css">
+  
+  <style>
+    .invite-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .invite-card {
+      background: white;
+      border-radius: 15px;
+      padding: 3rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+    }
+    
+    .invite-logo {
+      height: 60px;
+      margin-bottom: 2rem;
+    }
+    
+    .invite-title {
+      color: #333;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .invite-text {
+      color: #666;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    
+    .netlify-identity-button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .netlify-identity-button:hover {
+      transform: translateY(-2px);
+    }
+    
+    .loading-text {
+      color: #999;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="invite-container">
+    <div class="invite-card">
+      <img src="assets/images-edit/logo-1.png" alt="日日瀅生醫" class="invite-logo">
+      
+      <h2 class="invite-title">歡迎加入日日瀅生醫管理團隊</h2>
+      
+      <p class="invite-text">
+        您已被邀請成為網站管理員。<br>
+        請點擊下方按鈕完成帳號設定。
+      </p>
+      
+      <div id="netlify-identity-widget"></div>
+      
+      <p class="loading-text mt-3" id="loading-message">
+        正在載入邀請資訊...
+      </p>
+    </div>
+  </div>
+
+  <!-- Netlify Identity Widget -->
+  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
+  <script>
+    // 處理邀請 token
+    const urlParams = new URLSearchParams(window.location.search);
+    const inviteToken = urlParams.get('invite_token') || window.location.hash.split('invite_token=')[1];
+    
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        document.getElementById('loading-message').style.display = 'none';
+        
+        if (!user) {
+          // 如果有邀請 token，自動開啟註冊流程
+          if (inviteToken) {
+            console.log('Found invite token:', inviteToken);
+            // 自動觸發邀請流程
+            setTimeout(() => {
+              window.netlifyIdentity.open('signup');
+            }, 1000);
+          }
+          
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+          
+          window.netlifyIdentity.on("signup", () => {
+            document.location.href = "/admin/";
+          });
+        } else {
+          // 已登入，直接跳轉到管理後台
+          document.location.href = "/admin/";
+        }
+      });
+      
+      window.netlifyIdentity.on("error", err => {
+        console.error("Identity error:", err);
+        document.getElementById('loading-message').textContent = '載入失敗，請重新整理頁面或聯絡管理員。';
+      });
+    } else {
+      document.getElementById('loading-message').textContent = '無法載入認證系統，請檢查網路連線。';
+    }
+  </script>
+</body>
+</html>

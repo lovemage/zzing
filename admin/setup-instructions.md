@@ -26,11 +26,25 @@
 
 ## 4. 新增管理員使用者
 
-### 方法一：透過 Netlify 後台
+### 方法一：透過 Netlify 後台（推薦）
 1. 在 Identity 頁面，點擊 "Invite users"
 2. 輸入管理員 Email：`admin@zzing.com`
 3. 點擊 "Send invite"
-4. 管理員會收到邀請 Email，點擊連結設定密碼
+4. 管理員會收到邀請 Email，點擊連結會跳轉到邀請頁面
+5. 如果邀請連結無法正常開啟註冊頁面，請使用以下方法：
+
+### 邀請連結問題解決方案
+如果點擊邀請 Email 中的連結沒有顯示註冊頁面：
+
+1. **使用專用邀請頁面**：
+   - 將邀請連結中的 `#invite_token=xxx` 部分複製
+   - 前往 `https://your-site.netlify.app/invite.html?invite_token=xxx`
+   - 或直接前往 `https://your-site.netlify.app/invite.html`
+
+2. **手動處理邀請**：
+   - 前往網站首頁 `https://your-site.netlify.app/`
+   - 頁面會自動偵測邀請 token 並開啟註冊流程
+   - 或直接前往 `/admin/` 頁面點擊註冊
 
 ### 方法二：透過網站註冊（需先開放註冊）
 1. 暫時將 Registration 改為 "Open"
