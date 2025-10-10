@@ -12,8 +12,9 @@ i18n:
   locales: [zh-Hant]
 
 # CMS 顯示設定
-display_url: https://zzing.netlify.app
+display_url: https://ririyingbio.com
 logo_url: /assets/images-edit/logo-1.png
+site_url: https://ririyingbio.com
 
 # 編輯器設定
 editor:
