@@ -15235,7 +15235,7 @@ a.navbar-brand img {
 
 /*-- stats --*/
 .w3l-stats {
-  background: url(../images/banner.jpg) no-repeat center;
+  background: url(../images/banner-bg.avif) no-repeat center;
   background-size: cover;
   position: relative;
   z-index: 0;
