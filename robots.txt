@@ -1,0 +1,20 @@
+# robots.txt for https://ririyingbio.com
+
+User-agent: *
+Allow: /
+
+# 不允許爬取的目錄
+Disallow: /admin/
+Disallow: /sample/
+Disallow: /assets/uploads/
+Disallow: /content/
+
+# 允許爬取重要資源
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Allow: /assets/images-edit/
+
+# Sitemap 位置
+Sitemap: https://ririyingbio.com/sitemap.xml
+
