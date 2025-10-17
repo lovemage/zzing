@@ -184,22 +184,22 @@
           </div>
         </div>
         <div class="contact-right">
-          <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
+          <form name="contact" method="post" netlify class="signin-form">
             <div class="input-grids">
-              <input type="text" name="w3lName" id="w3lName" placeholder="您的姓名*" class="contact-input"
+              <input type="text" name="name" id="w3lName" placeholder="您的姓名*" class="contact-input"
                 required="" />
-              <input type="email" name="w3lSender" id="w3lSender" placeholder="您的電子郵件*" class="contact-input"
+              <input type="email" name="email" id="w3lSender" placeholder="您的電子郵件*" class="contact-input"
                 required="" />
-              <input type="text" name="w3lSubect" id="w3lSubect" placeholder="主旨*" class="contact-input"
+              <input type="text" name="subject" id="w3lSubect" placeholder="主旨*" class="contact-input"
                 required="" />
-              <input type="text" name="w3lWebsite" id="w3lWebsite" placeholder="公司網站*" class="contact-input"
+              <input type="text" name="website" id="w3lWebsite" placeholder="公司網站*" class="contact-input"
                 required="" />
             </div>
             <div class="form-input">
-              <textarea name="w3lMessage" id="w3lMessage" placeholder="請輸入您的訊息*" required=""></textarea>
+              <textarea name="message" id="w3lMessage" placeholder="請輸入您的訊息*" required=""></textarea>
             </div>
             <div class="w3l-submit text-lg-right">
-            <button class="btn btn-style btn-primary">發送訊息</button>
+            <button type="submit" class="btn btn-style btn-primary">發送訊息</button>
             </div>
           </form>
         </div>
@@ -252,9 +252,9 @@
             <h6 class="footer-title-29">訂閱電子報</h6>
             <p>輸入您的電子郵件，接收最新的產品資訊、代工服務更新和特別優惠。</p>
 
-            <form action="#" class="subscribe" method="post">
+            <form name="subscribe" method="post" netlify class="subscribe">
               <input type="email" name="email" placeholder="您的電子郵件地址" required="">
-              <button class="btn btn-style btn-primary w-100 mt-3">訂閱</button>
+              <button type="submit" class="btn btn-style btn-primary w-100 mt-3">訂閱</button>
             </form>
           </div>
         </div>
