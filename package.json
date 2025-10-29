@@ -1,0 +1,19 @@
+{
+  "name": "ririyingbio-website",
+  "version": "1.0.0",
+  "description": "日日瀅生醫有限公司官方網站",
+  "scripts": {
+    "sync-cases": "node scripts/sync-cases.js",
+    "build": "npm run sync-cases",
+    "prebuild": "npm run sync-cases"
+  },
+  "keywords": [
+    "healthcare",
+    "oem",
+    "manufacturing"
+  ],
+  "author": "日日瀅生醫有限公司",
+  "license": "UNLICENSED",
+  "private": true
+}
+

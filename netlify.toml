@@ -1,0 +1,46 @@
+[build]
+  # 構建命令：同步 Markdown 案例到 JSON
+  command = "npm run build"
+  
+  # 發布目錄：根目錄
+  publish = "."
+
+# 表單設定
+[build.environment]
+  NODE_VERSION = "18"
+
+# 重定向規則
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
+# 表單處理
+[forms]
+  # 啟用表單檢測
+  enabled = true
+
+# 頭部設定
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
