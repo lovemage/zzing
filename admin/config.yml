@@ -21,32 +21,91 @@ editor:
   preview: true
 
 collections:
-  # 產品案例（使用 folder 結構，每個案例為獨立檔案）
-  # 注意：首頁會自動顯示前6個最新案例，產品案例頁面顯示所有案例
-  - label: "產品案例"
+  # 產品案例管理 - 完整操作指南
+  # 📋 重要說明：
+  # • 首頁會自動顯示最新的6個案例
+  # • 產品案例頁面(/blog.html)會顯示所有已發布的案例
+  # • 案例詳情頁面會自動生成SEO優化的HTML結構
+  # • 每個案例都會自動生成結構化數據標記，有利於搜尋引擎收錄
+  - label: "📝 產品案例管理"
     name: "cases"
     folder: "content/cases"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    description: "管理產品案例內容。首頁會自動顯示最新的6個案例，產品案例頁面(/blog.html)會顯示所有已發布的案例。"
+    description: "管理產品案例內容。系統會自動處理SEO優化、結構化數據標記和響應式圖片。完全不懂電腦也能輕鬆操作！"
     fields:
-      - { label: "標題", name: "title", widget: "string" }
-      - { label: "分類", name: "category", widget: "select", options: ["膠囊代工", "粉劑代工", "液態代工", "錠劑代工", "軟膠囊代工", "其他"] }
-      - { label: "發佈日期", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-      - { label: "縮圖", name: "image", widget: "image" }
-      - { label: "摘要", name: "excerpt", widget: "text" }
-      - { label: "專案概述", name: "overview", widget: "markdown", required: false }
-      - label: "服務內容"
+      - label: "📌 案例標題"
+        name: "title"
+        widget: "string"
+        hint: "輸入吸引人的案例標題，例如：「專業維生素膠囊代工案例分享」。這會成為網頁的主標題(H1)，對SEO很重要！"
+
+      - label: "🏷️ 代工分類"
+        name: "category"
+        widget: "select"
+        options: ["膠囊代工", "粉劑代工", "液態代工", "錠劑代工", "軟膠囊代工", "其他"]
+        hint: "選擇這個案例屬於哪種代工類型，會顯示在案例卡片上"
+
+      - label: "📅 發佈日期"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        hint: "選擇案例的發佈日期，最新的案例會優先顯示在首頁"
+
+      - label: "🖼️ 主要圖片"
+        name: "image"
+        widget: "image"
+        hint: "上傳案例的主要圖片，建議尺寸 800x600 像素，會顯示在案例列表和詳情頁面。系統會自動優化圖片大小"
+
+      - label: "📝 案例摘要"
+        name: "excerpt"
+        widget: "text"
+        hint: "簡短描述這個案例的重點，約50-100字，會顯示在案例列表頁面。這也是搜尋引擎會抓取的描述文字"
+      - label: "📋 專案概述"
+        name: "overview"
+        widget: "markdown"
+        required: false
+        hint: "詳細描述這個代工專案的背景、挑戰和我們的解決方案。可以使用 Markdown 格式，支援粗體(**文字**)、斜體(*文字*)等。這會成為案例詳情頁面的主要內容"
+
+      - label: "🔧 服務內容清單"
         name: "services"
         widget: "list"
         required: false
+        hint: "列出我們為這個案例提供的具體服務項目，可以添加多個項目"
         fields:
-          - { label: "服務項目", name: "title", widget: "string" }
-          - { label: "說明", name: "description", widget: "text", required: false }
-      - { label: "專案成果", name: "results", widget: "markdown", required: false }
-      - { label: "客戶見證", name: "testimonial", widget: "text", required: false }
-      - { label: "相關圖片", name: "gallery", widget: "list", field: { label: "圖片", name: "image", widget: "image" }, required: false }
-      - { label: "發佈狀態", name: "published", widget: "boolean", default: true }
+          - label: "服務項目名稱"
+            name: "title"
+            widget: "string"
+            hint: "例如：配方研發與優化"
+          - label: "服務說明"
+            name: "description"
+            widget: "text"
+            required: false
+            hint: "詳細說明這個服務項目的內容"
+
+      - label: "🎯 專案成果"
+        name: "results"
+        widget: "markdown"
+        required: false
+        hint: "描述專案完成後的成果和客戶反饋。這部分對於展示我們的專業能力很重要！"
+
+      - label: "💬 客戶見證"
+        name: "testimonial"
+        widget: "text"
+        required: false
+        hint: "客戶對我們服務的評價或感謝話語，會以特殊樣式顯示在案例詳情頁面"
+
+      - label: "📸 相關圖片集"
+        name: "gallery"
+        widget: "list"
+        field: { label: "圖片", name: "image", widget: "image" }
+        required: false
+        hint: "上傳與這個案例相關的其他圖片，例如產品照片、生產過程等。建議每張圖片不超過2MB"
+
+      - label: "✅ 發佈狀態"
+        name: "published"
+        widget: "boolean"
+        default: true
+        hint: "開啟後案例會顯示在網站上，關閉後會隱藏（可用於草稿狀態）"
 
   # 案例資料匯總（用於網站顯示）
   - label: "案例資料管理"
@@ -68,27 +127,70 @@ collections:
               - { label: "摘要", name: "excerpt", widget: "text" }
               - { label: "詳情連結(可選)", name: "url", widget: "string", required: false }
 
-  # 客戶見證管理
-  - label: "客戶見證"
+  # 客戶見證管理 - 首頁輪播展示
+  # 💡 使用說明：這裡管理的見證會顯示在首頁的客戶見證輪播區塊
+  - label: "💬 客戶見證管理"
     name: "testimonials"
+    description: "管理首頁客戶見證輪播內容。這些見證會自動輪播顯示，增加網站可信度"
     files:
-      - label: "見證資料"
+      - label: "客戶見證資料"
         name: "testimonials_data"
         file: "content/testimonials.json"
+        description: "所有客戶見證都在這個檔案中管理，系統會自動按順序顯示"
         fields:
-          - label: "見證列表"
+          - label: "📝 客戶見證列表"
             name: "items"
             widget: "list"
             summary: "{{fields.name}} - {{fields.company}}"
+            hint: "點擊「Add 客戶見證列表」來新增見證，可以拖拽調整順序"
             fields:
-              - { label: "客戶姓名", name: "name", widget: "string" }
-              - { label: "公司名稱", name: "company", widget: "string" }
-              - { label: "職位", name: "position", widget: "string", required: false }
-              - { label: "見證內容", name: "content", widget: "text" }
-              - { label: "客戶頭像", name: "avatar", widget: "image" }
-              - { label: "評分", name: "rating", widget: "number", min: 1, max: 5, default: 5, required: false }
-              - { label: "顯示順序", name: "order", widget: "number", default: 1, required: false }
-              - { label: "發佈狀態", name: "published", widget: "boolean", default: true }
+              - label: "👤 客戶姓名"
+                name: "name"
+                widget: "string"
+                hint: "客戶的真實姓名或稱呼，例如：陳經理"
+
+              - label: "🏢 公司名稱"
+                name: "company"
+                widget: "string"
+                hint: "客戶的公司名稱，例如：保健食品公司"
+
+              - label: "💼 職位"
+                name: "position"
+                widget: "string"
+                required: false
+                hint: "客戶的職位，例如：產品經理（可選填）"
+
+              - label: "💭 見證內容"
+                name: "content"
+                widget: "text"
+                hint: "客戶對我們服務的評價，建議30-80字，內容要真實可信"
+
+              - label: "📷 客戶頭像"
+                name: "avatar"
+                widget: "image"
+                hint: "上傳客戶頭像照片，建議正方形，系統會自動調整為圓形顯示"
+
+              - label: "⭐ 評分"
+                name: "rating"
+                widget: "number"
+                min: 1
+                max: 5
+                default: 5
+                required: false
+                hint: "客戶評分（1-5星），預設為5星"
+
+              - label: "🔢 顯示順序"
+                name: "order"
+                widget: "number"
+                default: 1
+                required: false
+                hint: "數字越小越優先顯示，例如：1會比2更早顯示"
+
+              - label: "✅ 發佈狀態"
+                name: "published"
+                widget: "boolean"
+                default: true
+                hint: "開啟後會顯示在首頁，關閉後會隱藏"
 
   # 網站設定管理
   - label: "網站設定"

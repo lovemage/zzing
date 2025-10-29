@@ -1,42 +1,81 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
+<!doctype html>
+<html lang="zxx">
+
 <head>
+  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title id="page-title">案例詳情 - 日日瀅生醫</title>
-  <link rel="icon" type="image/png" href="assets/icons/like.png">
+  <meta name="keywords" content="保健食品代工,產品案例,專業代工,日日瀅生醫,配方研發,品質控管,SEO優化案例">
+  <meta name="description" content="日日瀅生醫專業保健食品代工案例展示，從配方研發到生產包裝的完整服務流程，展現我們在代工領域的專業實力與成功經驗。">
+  <meta name="author" content="日日瀅生醫">
 
-  <!-- Bootstrap CSS -->
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="產品案例詳情 | 日日瀅生醫專業保健食品代工">
+  <meta property="og:description" content="專業保健食品代工案例展示，完整的服務流程與成功經驗分享">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="產品案例詳情 | 日日瀅生醫">
+  <meta property="twitter:description" content="專業保健食品代工案例展示">
+
+  <title id="page-title">產品案例詳情 | 日日瀅生醫 | 專業保健食品代工服務</title>
+  <link rel="icon" type="image/png" href="assets/icons/like.png">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style-starter.css">
-  
+
   <style>
-    .breadcrumb-bg {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    .banner-w3l-main {
       position: relative;
+      overflow: hidden;
     }
-    .breadcrumb-bg::before {
+    .banner-w3l-main video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .banner-w3l-main::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255, 255, 255, 0.5);
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
       z-index: 1;
     }
-    .breadcrumb-bg .container {
+    .banner-w3l-main .w3l-banner-content,
+    .banner-w3l-main .home-services {
       position: relative;
       z-index: 2;
     }
-    .breadcrumb-bg .breadcrumbs-custom-path {
-      color: #333;
+
+    /* 服務卡片毛玻璃效果 */
+    .home-services .box-wrap {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 30px 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
-    .breadcrumb-bg .breadcrumbs-custom-path li a {
-      color: #333;
+
+    .home-services .box-wrap:hover {
+      background: rgba(255, 255, 255, 0.6);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
-    .breadcrumb-bg .breadcrumbs-custom-path .fa {
-      color: #667eea;
-    }
+
+    /* 案例詳情頁面樣式 */
     .loading {
       text-align: center;
       padding: 3rem;
@@ -46,100 +85,305 @@
       text-align: center;
       padding: 3rem;
     }
+
+    /* SEO優化的文章結構樣式 */
+    .case-content h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .case-content h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #444;
+      margin: 2rem 0 1rem 0;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 0.5rem;
+    }
+
+    .case-content h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #555;
+      margin: 1.5rem 0 1rem 0;
+    }
+
+    .case-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .case-meta {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .case-meta .meta-item {
+      display: inline-block;
+      margin-right: 1.5rem;
+      color: #667eea;
+      font-weight: 500;
+    }
+
+    .case-gallery img {
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 
 <body>
-<div class="header-w3l">
-<!--header-->
-<header id="site-header" class="header-w3l fixed-top">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg stroke">
-      <a class="navbar-brand" href="index.html">
-        <img src="assets/images-edit/logo-1.png" alt="日日瀅生醫" style="height: 45px;">
-      </a>
-      <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
-        data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
-        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav ml-lg-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">關於我們</a></li>
-          <li class="nav-item active"><a class="nav-link" href="blog.html">產品案例 <span class="sr-only">(current)</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="services.html">代工服務</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">聯絡我們</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</header>
-</div>
+  <div class="header-w3l">
+  <!--header-->
+  <header id="site-header" class="header-w3l fixed-top">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg stroke">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/images-edit/logo-1.png" alt="日日瀅生醫" style="height: 45px;">
+        </a>
+        <!-- if logo is image enable this
+            <a class="navbar-brand" href="#index.html">
+                <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+            </a> -->
+        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+          data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+          <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+          </span>
+        </button>
 
-<!-- breadcrumb -->
-<section class="w3l-about-breadcrumb text-center breadcrumb-bg">
-  <div class="container">
-    <ul class="breadcrumbs-custom-path mt-3 pt-5">
-      <li><a href="index.html">首頁</a></li>
-      <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span> <a href="blog.html">產品案例</a></li>
-      <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span> <span id="breadcrumb-title">案例詳情</span></li>
-    </ul>
-    <h2 class="title text-center pt-3" id="hero-title">載入中...</h2>
-  </div>
-</section>
-<!-- //breadcrumb -->
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mx-lg-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">首頁</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">關於我們</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">代工服務</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="blog.html">產品案例</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">聯絡我們</a>
+            </li>
 
-<!-- 載入中 -->
-<div id="loading" class="loading">
-  <h3>載入案例資料中...</h3>
-</div>
+          </ul>
 
-<!-- 案例未找到 -->
-<div id="case-not-found" class="case-not-found" style="display: none;">
-  <h3>案例未找到</h3>
-  <p>抱歉，找不到您要查看的案例。</p>
-  <a href="blog.html" class="btn btn-primary">返回案例列表</a>
-</div>
-
-<!-- 案例內容 -->
-<div id="case-content" style="display: none;">
-  <section class="w3l-blog-single py-5">
-    <div class="container py-lg-4">
-      <div class="row">
-        <div class="col-lg-8 blog-post-main">
-          <div class="blog-post-content">
-            <img id="case-image" src="" alt="" class="img-fluid radius-image mb-4" />
-            
-            <div class="blog-post-meta mb-3">
-              <span class="meta-item"><i class="fa fa-calendar"></i> <span id="case-date"></span></span>
-              <span class="meta-item ml-3"><i class="fa fa-tag"></i> <span id="case-category"></span></span>
+        </div>
+        <!-- toggle switch for light and dark theme -->
+        <div class="mobile-position">
+          <nav class="navigation">
+            <div class="theme-switch-wrapper">
+              <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="mode-container">
+                  <i class="gg-sun"></i>
+                  <i class="gg-moon"></i>
+                </div>
+              </label>
             </div>
-            
-            <h3 id="case-title" class="mb-4"></h3>
-            
-            <div id="case-excerpt" class="mb-4"></div>
-            
-            <!-- 詳細內容區塊 -->
-            <div class="case-details">
-              <h4>專案概述</h4>
-              <p id="case-overview">此案例展示了我們在保健食品代工領域的專業能力，從配方設計到生產包裝，提供完整的一站式服務。</p>
-              
-              <h4>服務內容</h4>
-              <ul id="case-services">
-                <li>配方研發與優化</li>
-                <li>原料採購與品質控制</li>
-                <li>生產製造與包裝</li>
-                <li>品質檢驗與認證</li>
-                <li>法規諮詢與標示設計</li>
-              </ul>
-              
-              <h4>專案成果</h4>
-              <p id="case-results">透過我們的專業服務，客戶成功推出高品質的保健食品，獲得市場良好反響，建立了穩固的品牌信譽。</p>
+          </nav>
+        </div>
+        <!-- //toggle switch for light and dark theme -->
+      </nav>
+    </div>
+  </header>
+</div>
+  <!-- //header -->
+  <!--/w3l-banner-content-->
+  <div class="banner-w3l-main">
+    <video autoplay loop muted playsinline>
+      <source src="assets/images-edit/fillmechine.mp4" type="video/mp4">
+    </video>
+    <div class="w3l-banner-content">
+      <div class="container">
+        <div class="bannerhny-info text-center">
+          <h6 class="title-subhny mb-2">案例詳情</h6>
+          <h3 class="" id="hero-title">專業代工案例展示</h3>
+        </div>
+      </div>
+    </div>
+    <!-- home page block1 -->
+    <section class="home-services pt-lg-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="box-wrap">
+              <div class="box-wrap-grid">
+                <div class="icon">
+                  <span class="fa fa-search"></span>
+                </div>
+                <div class="info">
+                  <p>深度</p>
+                  <h4><a href="#url">案例分析</a></h4>
+                </div>
+              </div>
+              <p class="mt-3">深入分析每個代工案例的成功要素，展現專業技術與服務品質。</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 mt-md-0 mt-4">
+            <div class="box-wrap">
+              <div class="box-wrap-grid">
+                <div class="icon">
+                  <span class="fa fa-lightbulb-o"></span>
+                </div>
+                <div class="info">
+                  <p>創新</p>
+                  <h4><a href="#url">解決方案</a></h4>
+
+                </div>
+              </div>
+              <p class="mt-3">針對客戶需求提供創新的配方設計和生產解決方案。</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-4">
+            <div class="box-wrap">
+              <div class="box-wrap-grid">
+                <div class="icon">
+                  <span class="fa fa-star"></span>
+                </div>
+                <div class="info">
+                  <p>成果</p>
+                  <h4><a href="#url">品質保證</a></h4>
+
+                </div>
+              </div>
+              <p class="mt-3">每個案例都展現了我們對品質的堅持和客戶滿意的成果。</p>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+    <!-- //home page block1 -->
+  </div>
+  <!--//w3l-banner-content-->
+
+  <!-- banner bottom shape -->
+  <div class="position-relative">
+    <div class="shape overflow-hidden">
+      <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+      </svg>
+    </div>
+  </div>
+  <!-- banner bottom shape -->
+
+  <!-- 載入中 -->
+  <div id="loading" class="loading">
+    <h3>載入案例資料中...</h3>
+  </div>
+
+  <!-- 案例未找到 -->
+  <div id="case-not-found" class="case-not-found" style="display: none;">
+    <h3>案例未找到</h3>
+    <p>抱歉，找不到您要查看的案例。</p>
+    <a href="blog.html" class="btn btn-primary">返回案例列表</a>
+  </div>
+
+  <!-- 案例內容 - SEO優化結構 -->
+  <div id="case-content" style="display: none;">
+    <article class="w3l-blog-single py-5">
+      <div class="container py-lg-4">
+        <div class="row">
+          <div class="col-lg-8 blog-post-main">
+            <div class="case-content">
+              <!-- 主要圖片 -->
+              <img id="case-image" src="" alt="" class="img-fluid radius-image mb-4" />
+
+              <!-- 案例元數據 -->
+              <div class="case-meta">
+                <span class="meta-item"><i class="fa fa-calendar"></i> <span id="case-date"></span></span>
+                <span class="meta-item"><i class="fa fa-tag"></i> <span id="case-category"></span></span>
+                <span class="meta-item"><i class="fa fa-user"></i> 日日瀅生醫</span>
+              </div>
+
+              <!-- H1 主標題 - SEO重要 -->
+              <h1 id="case-title" class="mb-4"></h1>
+
+              <!-- 案例摘要 -->
+              <div id="case-excerpt" class="mb-4"></div>
+
+              <!-- 詳細內容區塊 - 使用語義化HTML結構 -->
+              <div class="case-details">
+                <section class="mb-5">
+                  <h2>專案概述</h2>
+                  <div id="case-overview">
+                    <p>此案例展示了我們在保健食品代工領域的專業能力，從配方設計到生產包裝，提供完整的一站式服務。我們致力於為客戶提供最優質的代工解決方案，確保每個產品都符合最高的品質標準。</p>
+                  </div>
+                </section>
+
+                <section class="mb-5">
+                  <h2>服務內容</h2>
+                  <div id="case-services">
+                    <ul>
+                      <li><strong>配方研發與優化</strong> - 根據客戶需求設計專屬配方</li>
+                      <li><strong>原料採購與品質控制</strong> - 嚴選優質原料，確保品質穩定</li>
+                      <li><strong>生產製造與包裝</strong> - 採用先進設備，精密生產流程</li>
+                      <li><strong>品質檢驗與認證</strong> - 多重檢驗程序，符合國際標準</li>
+                      <li><strong>法規諮詢與標示設計</strong> - 專業法規指導，合規標示設計</li>
+                    </ul>
+                  </div>
+                </section>
+
+                <section class="mb-5">
+                  <h2>專案成果</h2>
+                  <div id="case-results">
+                    <p>透過我們的專業服務，客戶成功推出高品質的保健食品，獲得市場良好反響，建立了穩固的品牌信譽。此案例充分展現了我們在代工領域的技術實力和服務品質。</p>
+                  </div>
+                </section>
+
+                <section class="mb-5" id="case-testimonial-section" style="display: none;">
+                  <h2>客戶見證</h2>
+                  <blockquote class="blockquote">
+                    <p id="case-testimonial" class="mb-0"></p>
+                    <footer class="blockquote-footer mt-2">客戶回饋</footer>
+                  </blockquote>
+                </section>
+
+                <section class="mb-5" id="case-gallery-section" style="display: none;">
+                  <h2>相關圖片</h2>
+                  <div id="case-gallery" class="case-gallery row"></div>
+                </section>
+              </div>
+
+              <!-- 結構化數據標記 -->
+              <script type="application/ld+json" id="case-structured-data">
+              {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "",
+                "description": "",
+                "image": "",
+                "author": {
+                  "@type": "Organization",
+                  "name": "日日瀅生醫"
+                },
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "日日瀅生醫",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://ririyingbio.com/assets/images-edit/logo-1.png"
+                  }
+                },
+                "datePublished": "",
+                "dateModified": ""
+              }
+              </script>
+            </div>
+          </div>
         
         <div class="col-lg-4 sidebar">
           <div class="sidebar-widget">
@@ -172,7 +416,7 @@
           <p>專業保健食品代工服務，打造健康新世代，我們是您最堅實的代工夥伴。</p>
           <ul class="mt-3">
             <li><a href="tel:04-22017588"><span class="fa fa-phone"></span> 04-22017588</a></li>
-            <li><a href="mailto:info@babypharm.com.tw" class="mail"><span class="fa fa-envelope-open-o"></span> info@babypharm.com.tw</a></li>
+            <li><a href="mailto:service@ririyingbio.com" class="mail"><span class="fa fa-envelope-open-o"></span> service@ririyingbio.com</a></li>
             <li><a href="#location" class=""><span class="fa fa-map-marker"></span> 台中市北區進化北路95號</a></li>
           </ul>
         </div>
@@ -201,8 +445,8 @@
           <a href="tel:04-22017588" class="company-name">
             <p class="mb-2"><span class="fa fa-phone"></span> 04-22017588</p>
           </a>
-          <a href="mailto:info@babypharm.com.tw" class="company-name">
-            <p><span class="fa fa-envelope-open-o"></span> info@babypharm.com.tw</p>
+          <a href="mailto:service@ririyingbio.com" class="company-name">
+            <p><span class="fa fa-envelope-open-o"></span> service@ririyingbio.com</p>
           </a>
         </div>
       </div>
@@ -210,23 +454,52 @@
   </div>
 </footer>
 
-<!-- Netlify Identity Widget -->
-<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- jQuery -->
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="assets/js/bootstrap.min.js"></script>
+  <!-- theme switch js (light and dark)-->
+  <script src="assets/js/theme-change.js"></script>
+  <!-- //theme switch js (light and dark)-->
 
-<script src="assets/js/bootstrap.min.js"></script>
+  <!-- MENU-JS -->
+  <script>
+    $(window).on("scroll", function () {
+      var scroll = $(window).scrollTop();
 
-<!-- Netlify Identity 邀請處理 -->
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
+      if (scroll >= 80) {
+        $("#site-header").addClass("nav-fixed");
+      } else {
+        $("#site-header").removeClass("nav-fixed");
       }
     });
-  }
-</script>
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+      $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+      $(window).on("resize", function () {
+        if ($(window).width() > 991) {
+          $("header").removeClass("active");
+        }
+      });
+    });
+  </script>
+  <!-- //MENU-JS -->
+
+  <!-- disable body scroll which navbar is in active -->
+  <script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- disable body scroll which navbar is in active -->
 
 <!-- 動態載入案例內容 -->
 <script>
