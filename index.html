@@ -609,114 +609,7 @@
           <h3 class="title-w3l mb-sm-5 mb-4 pb-sm-o pb-2 text-center">客戶怎麼說</h3>
         </div>
         <div id="owl-demo2" class="owl-carousel owl-theme mt-4 py-md-2 mb-md-4">
-          <div class="item">
-            <div class="testimonial-content">
-              <div class="testimonial">
-                <blockquote>
-                  <q>專業的代工服務，值得信賴</q>
-                </blockquote>
-                <p>日日瀅生醫提供了非常專業的代工服務，從配方設計到包裝都很用心，產品品質優良，合作過程順暢愉快。</p>
-              </div>
-              <div class="bottom-info mt-4">
-                <a class="comment-img" href="#url"><img src="assets/images/team1.jpg" class="img-responsive"
-                    alt="placeholder image"></a>
-                <div class="people-info align-self">
-                  <h3>王先生</h3>
-                  <p class="identity">健康食品品牌</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimonial-content">
-              <div class="testimonial">
-                <blockquote>
-                  <q>品質控管嚴格，交期準時</q>
-                </blockquote>
-                <p>合作多年來，日日瀅生醫始終維持高品質標準，每批產品都有完整檢驗報告，交期也很準時，是值得長期合作的夥伴。</p>
-              </div>
-              <div class="bottom-info mt-4">
-                <a class="comment-img" href="#url"><img src="assets/images/team2.jpg" class="img-responsive"
-                    alt="placeholder image"></a>
-                <div class="people-info align-self">
-                  <h3>李小姐</h3>
-                  <p class="identity">營養品牌</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimonial-content">
-              <div class="testimonial">
-                <blockquote>
-                  <q>配方研發能力強，創新不斷</q>
-                </blockquote>
-                <p>日日瀅生醫的研發團隊非常專業，能夠根據市場趨勢提供創新配方建議，幫助我們的產品在競爭激烈的市場中脫穎而出，銷售業績持續成長。</p>
-              </div>
-              <div class="bottom-info mt-4">
-                <a class="comment-img" href="#url"><img src="assets/images/c2.png" class="img-responsive"
-                    alt="陳經理"></a>
-                <div class="people-info align-self">
-                  <h3>陳經理</h3>
-                  <p class="identity">保健食品公司</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimonial-content">
-              <div class="testimonial">
-                <blockquote>
-                  <q>一站式服務，省時省力</q>
-                </blockquote>
-                <p>從配方開發、打樣測試到量產包裝，日日瀅生醫提供完整的一站式服務，讓我們不需要四處奔波，大幅節省了時間和精力，專注於品牌行銷。</p>
-              </div>
-              <div class="bottom-info mt-4">
-                <a class="comment-img" href="#url"><img src="assets/images/c3.png" class="img-responsive"
-                    alt="張總監"></a>
-                <div class="people-info align-self">
-                  <h3>張總監</h3>
-                  <p class="identity">電商品牌</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimonial-content">
-              <div class="testimonial">
-                <blockquote>
-                  <q>國際認證齊全，品質有保障</q>
-                </blockquote>
-                <p>選擇日日瀅生醫最大的原因是他們擁有完整的國際認證，包括 ISO、HACCP 等，讓我們的產品能夠順利出口到歐美市場，客戶反饋都很好。</p>
-              </div>
-              <div class="bottom-info mt-4">
-                <a class="comment-img" href="#url"><img src="assets/images/c4.png" class="img-responsive"
-                    alt="林董事長"></a>
-                <div class="people-info align-self">
-                  <h3>林董事長</h3>
-                  <p class="identity">國際貿易公司</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimonial-content">
-              <div class="testimonial">
-                <blockquote>
-                  <q>客製化服務，滿足特殊需求</q>
-                </blockquote>
-                <p>我們有一些特殊的配方需求，日日瀅生醫的團隊非常有耐心地與我們溝通，提供客製化的解決方案，最終產品完全符合我們的期望，非常滿意。</p>
-              </div>
-              <div class="bottom-info mt-4">
-                <a class="comment-img" href="#url"><img src="assets/images/c5.png" class="img-responsive"
-                    alt="黃小姐"></a>
-                <div class="people-info align-self">
-                  <h3>黃小姐</h3>
-                  <p class="identity">新創品牌</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- 客戶見證將通過 JavaScript 動態載入 -->
         </div>
       </div>
     </div>
@@ -824,33 +717,90 @@
   <script src="assets/js/owl.carousel.js"></script>
   <!-- script for tesimonials carousel slider -->
   <script>
+    // 載入客戶見證數據
+    function loadTestimonials() {
+      fetch('content/testimonials.json?_=' + Date.now())
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          var carousel = document.getElementById('owl-demo2');
+          if (!carousel || !data || !data.items) return;
+
+          // 過濾已發布的見證並按順序排序
+          var publishedItems = data.items
+            .filter(function(item) { return item.published !== false; })
+            .sort(function(a, b) { return (a.order || 0) - (b.order || 0); });
+
+          var html = publishedItems.map(function(item) {
+            return '<div class="item">' +
+              '<div class="testimonial-content">' +
+                '<div class="testimonial">' +
+                  '<blockquote>' +
+                    '<q>' + (item.content || '') + '</q>' +
+                  '</blockquote>' +
+                '</div>' +
+                '<div class="bottom-info mt-4">' +
+                  '<a class="comment-img" href="#url">' +
+                    '<img src="' + (item.avatar || '/assets/images/placeholder-avatar.png') + '" class="img-responsive" alt="' + (item.name || '') + '">' +
+                  '</a>' +
+                  '<div class="people-info align-self">' +
+                    '<h3>' + (item.name || '') + '</h3>' +
+                    '<p class="identity">' + (item.company || '') + '</p>' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>';
+          }).join('');
+
+          carousel.innerHTML = html;
+
+          // 初始化 owl carousel
+          $("#owl-demo2").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+              0: {
+                items: 1,
+                nav: false
+              },
+              736: {
+                items: 1,
+                nav: false
+              },
+              991: {
+                items: 2,
+                margin: 30,
+                nav: false
+              },
+              1080: {
+                items: 3,
+                nav: false
+              }
+            }
+          });
+        })
+        .catch(function(err) {
+          console.warn('Load testimonials failed', err);
+          // 如果載入失敗，仍然初始化空的 carousel
+          $("#owl-demo2").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+              0: { items: 1, nav: false },
+              736: { items: 1, nav: false },
+              991: { items: 2, margin: 30, nav: false },
+              1080: { items: 3, nav: false }
+            }
+          });
+        });
+    }
+
     $(document).ready(function () {
-      $("#owl-demo2").owlCarousel({
-        loop: true,
-        nav: false,
-        margin: 50,
-        responsiveClass: true,
-        responsive: {
-          0: {
-            items: 1,
-            nav: false
-          },
-          736: {
-            items: 1,
-            nav: false
-          },
-          991: {
-            items: 2,
-            margin: 30,
-            nav: false
-          },
-          1080: {
-            items: 3,
-            nav: false
-          }
-        }
-      })
-    })
+      loadTestimonials();
+    });
   </script>
   <!-- //script for tesimonials carousel slider -->
   <!-- stats number counter-->

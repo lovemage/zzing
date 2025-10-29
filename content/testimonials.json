@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "name": "陳經理",
+      "company": "保健食品公司",
+      "position": "產品經理",
+      "content": "專業的代工服務，值得信賴",
+      "avatar": "/assets/images/c2.png",
+      "rating": 5,
+      "order": 1,
+      "published": true
+    },
+    {
+      "name": "張總監",
+      "company": "電商品牌",
+      "position": "營運總監",
+      "content": "品質控管嚴格，交期準時",
+      "avatar": "/assets/images/c3.png",
+      "rating": 5,
+      "order": 2,
+      "published": true
+    },
+    {
+      "name": "林董事長",
+      "company": "國際貿易公司",
+      "position": "董事長",
+      "content": "配方研發能力強，創新不斷",
+      "avatar": "/assets/images/c4.png",
+      "rating": 5,
+      "order": 3,
+      "published": true
+    },
+    {
+      "name": "黃小姐",
+      "company": "新創品牌",
+      "position": "創辦人",
+      "content": "一站式服務，省時省力",
+      "avatar": "/assets/images/c5.png",
+      "rating": 5,
+      "order": 4,
+      "published": true
+    },
+    {
+      "name": "王先生",
+      "company": "連鎖藥局",
+      "position": "採購主管",
+      "content": "國際認證齊全，品質有保障",
+      "avatar": "/assets/images/placeholder-avatar.png",
+      "rating": 5,
+      "order": 5,
+      "published": true
+    },
+    {
+      "name": "李總經理",
+      "company": "生技公司",
+      "position": "總經理",
+      "content": "客製化服務，滿足特殊需求",
+      "avatar": "/assets/images/placeholder-avatar.png",
+      "rating": 5,
+      "order": 6,
+      "published": true
+    }
+  ]
+}

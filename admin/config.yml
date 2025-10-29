@@ -66,6 +66,53 @@ collections:
               - { label: "摘要", name: "excerpt", widget: "text" }
               - { label: "詳情連結(可選)", name: "url", widget: "string", required: false }
 
+  # 客戶見證管理
+  - label: "客戶見證"
+    name: "testimonials"
+    files:
+      - label: "見證資料"
+        name: "testimonials_data"
+        file: "content/testimonials.json"
+        fields:
+          - label: "見證列表"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.name}} - {{fields.company}}"
+            fields:
+              - { label: "客戶姓名", name: "name", widget: "string" }
+              - { label: "公司名稱", name: "company", widget: "string" }
+              - { label: "職位", name: "position", widget: "string", required: false }
+              - { label: "見證內容", name: "content", widget: "text" }
+              - { label: "客戶頭像", name: "avatar", widget: "image" }
+              - { label: "評分", name: "rating", widget: "number", min: 1, max: 5, default: 5, required: false }
+              - { label: "顯示順序", name: "order", widget: "number", default: 1, required: false }
+              - { label: "發佈狀態", name: "published", widget: "boolean", default: true }
+
+  # 網站設定管理
+  - label: "網站設定"
+    name: "site_settings"
+    files:
+      - label: "基本設定"
+        name: "site_config"
+        file: "content/site-config.json"
+        fields:
+          - { label: "網站標題", name: "site_title", widget: "string", default: "日日瀅生醫" }
+          - { label: "網站描述", name: "site_description", widget: "text", default: "專業保健食品代工服務" }
+          - { label: "公司電話", name: "phone", widget: "string", default: "04-22017588" }
+          - { label: "公司信箱", name: "email", widget: "string", default: "info@babypharm.com.tw" }
+          - { label: "公司地址", name: "address", widget: "text", required: false }
+          - { label: "Facebook 連結", name: "facebook_url", widget: "string", required: false }
+          - { label: "Instagram 連結", name: "instagram_url", widget: "string", required: false }
+          - { label: "LinkedIn 連結", name: "linkedin_url", widget: "string", required: false }
+          - label: "統計數據"
+            name: "stats"
+            widget: "object"
+            fields:
+              - { label: "成功案例數", name: "cases", widget: "number", default: 1100 }
+              - { label: "代工產品數", name: "products", widget: "number", default: 1020 }
+              - { label: "滿意客戶數", name: "clients", widget: "number", default: 912 }
+              - { label: "品牌合作數", name: "brands", widget: "number", default: 80 }
+
   # Blog 文章（同樣用 JSON 清單，提供完整發佈欄位）
   - label: "Blog"
     name: "blog"
