@@ -22,11 +22,13 @@ editor:
 
 collections:
   # 產品案例（使用 folder 結構，每個案例為獨立檔案）
+  # 注意：首頁會自動顯示前6個最新案例，產品案例頁面顯示所有案例
   - label: "產品案例"
     name: "cases"
     folder: "content/cases"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    description: "管理產品案例內容。首頁會自動顯示最新的6個案例，產品案例頁面(/blog.html)會顯示所有已發布的案例。"
     fields:
       - { label: "標題", name: "title", widget: "string" }
       - { label: "分類", name: "category", widget: "select", options: ["膠囊代工", "粉劑代工", "液態代工", "錠劑代工", "軟膠囊代工", "其他"] }
