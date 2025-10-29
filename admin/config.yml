@@ -211,7 +211,135 @@ collections:
               - { label: "滿意客戶數", name: "clients", widget: "number", default: 912 }
               - { label: "品牌合作數", name: "brands", widget: "number", default: 80 }
 
-  # ❌ 已移除：Blog文章管理 (避免混亂)
-  # 原因：目前網站沒有獨立的Blog頁面，blog.html實際顯示的是產品案例
-  # 如果未來需要真正的Blog功能，可以重新添加此集合並創建對應的頁面
+  # 🧪 機能配方管理 - 影響首頁+6個配方頁面
+  # 🎯 編輯這裡會影響以下頁面：
+  # • 首頁 (index.html) - "機能配方與素材"區塊的6個卡片
+  # • 體重管理頁面 (weight-control.html)
+  # • 美容抗老頁面 (anti-aging.html)
+  # • 男性機能頁面 (men-power.html)
+  # • 運動保健頁面 (sport-nutrition.html)
+  # • 銀髮長青頁面 (elder-care.html)
+  # • 幼兒成長頁面 (child-growth.html)
+  #
+  # ⚙️ 系統自動處理：SEO標籤、響應式圖片、動態內容載入
+  - label: "🧪 機能配方管理 (影響：首頁+6個配方頁面)"
+    name: "formulas"
+    description: "⚠️ 重要：編輯這裡會同時影響首頁的配方卡片和所有配方詳情頁面！可以管理配方名稱、成分、圖片等所有內容。"
+    files:
+      - label: "配方資料"
+        name: "formulas_data"
+        file: "content/formulas.json"
+        description: "管理所有配方頁面的內容，包括首頁卡片和詳情頁面"
+        fields:
+          - label: "🧪 配方列表"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.subtitle}})"
+            hint: "點擊「Add 配方列表」來新增配方，可以拖拽調整順序"
+            fields:
+              - label: "🆔 配方ID"
+                name: "id"
+                widget: "string"
+                hint: "配方的唯一識別碼，例如：weight-control（請勿修改現有ID）"
+
+              - label: "📌 配方標題"
+                name: "title"
+                widget: "string"
+                hint: "配方的中文名稱，例如：體重管理"
+
+              - label: "🏷️ 英文副標題"
+                name: "subtitle"
+                widget: "string"
+                hint: "配方的英文名稱，例如：Weight Control"
+
+              - label: "📝 配方描述"
+                name: "description"
+                widget: "text"
+                hint: "簡短描述配方特色，會顯示在首頁卡片上"
+
+              - label: "🎨 圖標"
+                name: "icon"
+                widget: "select"
+                options:
+                  - { label: "天秤 (體重管理)", value: "fa-balance-scale" }
+                  - { label: "星星 (美容抗老)", value: "fa-star" }
+                  - { label: "男性 (男性機能)", value: "fa-male" }
+                  - { label: "心跳 (運動保健)", value: "fa-heartbeat" }
+                  - { label: "醫生 (銀髮長青)", value: "fa-user-md" }
+                  - { label: "兒童 (幼兒成長)", value: "fa-child" }
+                  - { label: "其他圖標", value: "fa-flask" }
+                hint: "選擇在首頁卡片上顯示的圖標"
+
+              - label: "🖼️ 背景圖片"
+                name: "background_image"
+                widget: "image"
+                hint: "首頁卡片的背景圖片，建議尺寸 400x300 像素"
+
+              - label: "🔗 頁面連結"
+                name: "page_url"
+                widget: "string"
+                hint: "對應的HTML頁面檔名，例如：weight-control.html"
+
+              - label: "🔍 SEO標題"
+                name: "seo_title"
+                widget: "string"
+                hint: "網頁的完整標題，會顯示在瀏覽器標籤和搜尋結果中"
+
+              - label: "📄 SEO描述"
+                name: "seo_description"
+                widget: "text"
+                hint: "網頁描述，會顯示在搜尋結果中，建議120-160字"
+
+              - label: "🏷️ SEO關鍵字"
+                name: "seo_keywords"
+                widget: "string"
+                hint: "相關關鍵字，用逗號分隔，例如：體重管理,代餐,減重"
+
+              - label: "🎯 頁面主標題"
+                name: "banner_title"
+                widget: "string"
+                hint: "配方頁面頂部的主標題，例如：體重管理配方"
+
+              - label: "📝 頁面副標題"
+                name: "banner_subtitle"
+                widget: "string"
+                hint: "配方頁面頂部的英文副標題，例如：Weight Control Formula"
+
+              - label: "🧪 配方內容"
+                name: "formulas"
+                widget: "list"
+                hint: "這個配方類別下的具體配方，可以添加多個配方"
+                fields:
+                  - label: "配方名稱"
+                    name: "name"
+                    widget: "string"
+                    hint: "具體配方的名稱，例如：優格代餐保健食品配方"
+
+                  - label: "成分列表"
+                    name: "ingredients"
+                    widget: "list"
+                    field: { label: "成分", name: "ingredient", widget: "string" }
+                    hint: "配方的主要成分，每行一個成分"
+
+                  - label: "口味參考"
+                    name: "flavors"
+                    widget: "string"
+                    hint: "可選的口味，例如：草莓優格、海鹽奶油、香草牛奶"
+
+                  - label: "配方圖片"
+                    name: "image"
+                    widget: "image"
+                    hint: "配方的展示圖片，建議尺寸 600x400 像素"
+
+              - label: "✅ 發佈狀態"
+                name: "published"
+                widget: "boolean"
+                default: true
+                hint: "開啟後會顯示在首頁和配方頁面，關閉後會隱藏"
+
+              - label: "🔢 顯示順序"
+                name: "order"
+                widget: "number"
+                default: 1
+                hint: "在首頁的顯示順序，數字越小越優先顯示"
 

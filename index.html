@@ -347,84 +347,10 @@
           <h6 class="title-subhny">專業配方研發</h6>
           <h3 class="title-w3l mb-sm-5 mb-4 pb-lg-2">機能配方與素材</h3>
         </div>
-        <div class="row mt-5">
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="formula-card">
-              <img src="assets/images-edit/weightcontrol.png" alt="體重管理" class="formula-card-bg">
-              <a href="weight-control.html">
-                <div class="formula-icon">
-                  <span class="fa fa-balance-scale"></span>
-                </div>
-                <h4>體重管理</h4>
-                <p class="subtitle">Weight Control</p>
-                <p class="description">代餐奶昔、生酮配方、體重管理專業配方</p>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="formula-card">
-              <img src="assets/images-edit/antiaging.png" alt="美容抗老" class="formula-card-bg">
-              <a href="anti-aging.html">
-                <div class="formula-icon">
-                  <span class="fa fa-star"></span>
-                </div>
-                <h4>美容抗老</h4>
-                <p class="subtitle">Anti-aging</p>
-                <p class="description">膠原蛋白、玻尿酸、美容保健配方</p>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="formula-card">
-              <img src="assets/images-edit/manpower.png" alt="男性機能" class="formula-card-bg">
-              <a href="men-power.html">
-                <div class="formula-icon">
-                  <span class="fa fa-male"></span>
-                </div>
-                <h4>男性機能</h4>
-                <p class="subtitle">Men Power</p>
-                <p class="description">瑪卡、精胺酸、男性活力配方</p>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="formula-card">
-              <img src="assets/images-edit/sport copy.png" alt="運動保健" class="formula-card-bg">
-              <a href="sport-nutrition.html">
-                <div class="formula-icon">
-                  <span class="fa fa-heartbeat"></span>
-                </div>
-                <h4>運動保健</h4>
-                <p class="subtitle">Sport Nutrition</p>
-                <p class="description">乳清蛋白、BCAA、運動營養配方</p>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="formula-card">
-              <img src="assets/images-edit/elder_care.png" alt="銀髮長青" class="formula-card-bg">
-              <a href="elder-care.html">
-                <div class="formula-icon">
-                  <span class="fa fa-user-md"></span>
-                </div>
-                <h4>銀髮長青</h4>
-                <p class="subtitle">Elder Care</p>
-                <p class="description">葡萄糖胺、鈣質、銀髮保健配方</p>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="formula-card">
-              <img src="assets/images-edit/child_grow.png" alt="幼兒成長" class="formula-card-bg">
-              <a href="child-growth.html">
-                <div class="formula-icon">
-                  <span class="fa fa-child"></span>
-                </div>
-                <h4>幼兒成長</h4>
-                <p class="subtitle">Child Growth</p>
-                <p class="description">鈣質、DHA、兒童成長配方</p>
-              </a>
-            </div>
+        <div class="row mt-5" id="formulas-container">
+          <!-- 配方卡片將通過JavaScript動態載入 -->
+          <div class="col-12 text-center" id="formulas-loading">
+            <p>載入配方資料中...</p>
           </div>
         </div>
       </div>
@@ -822,6 +748,66 @@
     });
   </script>
   <!-- disable body scroll which navbar is in active -->
+
+  <!-- 動態載入配方卡片 -->
+  <script>
+  (function() {
+    // 載入配方資料
+    fetch('content/formulas.json?_=' + Date.now())
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('formulas-container');
+        const loading = document.getElementById('formulas-loading');
+
+        if (!container || !data.items) {
+          console.error('無法載入配方資料');
+          return;
+        }
+
+        // 按順序排序並過濾已發布的配方
+        const publishedFormulas = data.items
+          .filter(item => item.published)
+          .sort((a, b) => a.order - b.order);
+
+        // 生成配方卡片HTML
+        const formulasHtml = publishedFormulas.map(formula => `
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="formula-card">
+              <img src="${formula.background_image}" alt="${formula.title}" class="formula-card-bg">
+              <a href="${formula.page_url}">
+                <div class="formula-icon">
+                  <span class="fa ${formula.icon}"></span>
+                </div>
+                <h4>${formula.title}</h4>
+                <p class="subtitle">${formula.subtitle}</p>
+                <p class="description">${formula.description}</p>
+              </a>
+            </div>
+          </div>
+        `).join('');
+
+        // 更新容器內容
+        container.innerHTML = formulasHtml;
+
+        // 隱藏載入提示
+        if (loading) {
+          loading.style.display = 'none';
+        }
+      })
+      .catch(err => {
+        console.error('載入配方資料失敗:', err);
+        const container = document.getElementById('formulas-container');
+        if (container) {
+          container.innerHTML = `
+            <div class="col-12 text-center">
+              <p class="text-muted">載入配方資料失敗，請重新整理頁面</p>
+            </div>
+          `;
+        }
+      });
+  })();
+  </script>
+  <!-- //動態載入配方卡片 -->
 
   <!--/MENU-JS-->
   <script>

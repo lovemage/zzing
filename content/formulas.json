@@ -1,0 +1,255 @@
+{
+  "items": [
+    {
+      "id": "weight-control",
+      "title": "體重管理",
+      "subtitle": "Weight Control",
+      "description": "代餐奶昔、生酮配方、體重管理專業配方",
+      "icon": "fa-balance-scale",
+      "background_image": "/assets/images-edit/weightcontrol.png",
+      "page_url": "weight-control.html",
+      "seo_title": "日日瀅生醫 | 體重管理配方 | Weight Control",
+      "seo_description": "專業體重管理保健食品配方，包括優格代餐、代餐奶昔、生酮代餐等多種配方選擇",
+      "seo_keywords": "體重管理,代餐,減重,保健食品配方,減肥代餐",
+      "banner_title": "體重管理配方",
+      "banner_subtitle": "Weight Control Formula",
+      "formulas": [
+        {
+          "name": "優格代餐保健食品配方",
+          "ingredients": [
+            "大豆蛋白",
+            "乳酸菌動物雙歧桿菌",
+            "菊糖",
+            "白腎豆萃取物"
+          ],
+          "flavors": "草莓優格、海鹽奶油、香草牛奶",
+          "image": "/assets/images-edit/filling-machine.webp"
+        },
+        {
+          "name": "代餐奶昔保健食品配方",
+          "ingredients": [
+            "大豆蛋白",
+            "燕麥粉",
+            "洋車前子",
+            "秋葵萃取"
+          ],
+          "flavors": "濃醇可可、烏龍奶茶、高纖抹茶、起司濃湯",
+          "image": "/assets/images-edit/filling-machine-2.png"
+        },
+        {
+          "name": "生酮代餐保健食品配方",
+          "ingredients": [
+            "MCT油粉",
+            "乳清蛋白",
+            "膳食纖維",
+            "綜合維生素"
+          ],
+          "flavors": "原味、巧克力、香草",
+          "image": "/assets/images-edit/filling-machine.webp"
+        }
+      ],
+      "published": true,
+      "order": 1
+    },
+    {
+      "id": "anti-aging",
+      "title": "美容抗老",
+      "subtitle": "Anti-aging",
+      "description": "膠原蛋白、玻尿酸、美容保健配方",
+      "icon": "fa-star",
+      "background_image": "/assets/images-edit/antiaging.png",
+      "page_url": "anti-aging.html",
+      "seo_title": "日日瀅生醫 | 美容抗老配方 | Anti-aging",
+      "seo_description": "專業美容抗老保健食品配方，包括膠原蛋白、玻尿酸、抗氧化等美容保健配方",
+      "seo_keywords": "美容抗老,膠原蛋白,玻尿酸,抗氧化,美容保健",
+      "banner_title": "美容抗老配方",
+      "banner_subtitle": "Anti-aging Formula",
+      "formulas": [
+        {
+          "name": "膠原蛋白美容配方",
+          "ingredients": [
+            "水解膠原蛋白",
+            "維生素C",
+            "透明質酸",
+            "輔酶Q10"
+          ],
+          "flavors": "蜜桃、葡萄、檸檬",
+          "image": "/assets/images-edit/filling-machine.webp"
+        },
+        {
+          "name": "玻尿酸保濕配方",
+          "ingredients": [
+            "透明質酸鈉",
+            "神經醯胺",
+            "維生素E",
+            "葡萄籽萃取"
+          ],
+          "flavors": "原味、莓果",
+          "image": "/assets/images-edit/filling-machine-2.png"
+        }
+      ],
+      "published": true,
+      "order": 2
+    },
+    {
+      "id": "men-power",
+      "title": "男性機能",
+      "subtitle": "Men Power",
+      "description": "瑪卡、精胺酸、男性活力配方",
+      "icon": "fa-male",
+      "background_image": "/assets/images-edit/manpower.png",
+      "page_url": "men-power.html",
+      "seo_title": "日日瀅生醫 | 男性機能配方 | Men Power",
+      "seo_description": "專業男性機能保健食品配方，包括瑪卡、精胺酸、鋅等男性活力配方",
+      "seo_keywords": "男性機能,瑪卡,精胺酸,男性保健,活力配方",
+      "banner_title": "男性機能配方",
+      "banner_subtitle": "Men Power Formula",
+      "formulas": [
+        {
+          "name": "瑪卡活力配方",
+          "ingredients": [
+            "瑪卡萃取物",
+            "精胺酸",
+            "鋅",
+            "維生素B群"
+          ],
+          "flavors": "原味、咖啡",
+          "image": "/assets/images-edit/filling-machine.webp"
+        },
+        {
+          "name": "精胺酸強化配方",
+          "ingredients": [
+            "L-精胺酸",
+            "瓜胺酸",
+            "牛磺酸",
+            "人參萃取"
+          ],
+          "flavors": "檸檬、葡萄",
+          "image": "/assets/images-edit/filling-machine-2.png"
+        }
+      ],
+      "published": true,
+      "order": 3
+    },
+    {
+      "id": "sport-nutrition",
+      "title": "運動保健",
+      "subtitle": "Sport Nutrition",
+      "description": "乳清蛋白、BCAA、運動營養配方",
+      "icon": "fa-heartbeat",
+      "background_image": "/assets/images-edit/sport copy.png",
+      "page_url": "sport-nutrition.html",
+      "seo_title": "日日瀅生醫 | 運動保健配方 | Sport Nutrition",
+      "seo_description": "專業運動保健食品配方，包括乳清蛋白、BCAA、肌酸等運動營養配方",
+      "seo_keywords": "運動保健,乳清蛋白,BCAA,肌酸,運動營養",
+      "banner_title": "運動保健配方",
+      "banner_subtitle": "Sport Nutrition Formula",
+      "formulas": [
+        {
+          "name": "乳清蛋白配方",
+          "ingredients": [
+            "分離乳清蛋白",
+            "BCAA",
+            "谷胺醯胺",
+            "肌酸"
+          ],
+          "flavors": "巧克力、香草、草莓",
+          "image": "/assets/images-edit/filling-machine.webp"
+        },
+        {
+          "name": "運動前能量配方",
+          "ingredients": [
+            "咖啡因",
+            "牛磺酸",
+            "β-丙胺酸",
+            "瓜胺酸"
+          ],
+          "flavors": "水果拳、藍莓",
+          "image": "/assets/images-edit/filling-machine-2.png"
+        }
+      ],
+      "published": true,
+      "order": 4
+    },
+    {
+      "id": "elder-care",
+      "title": "銀髮長青",
+      "subtitle": "Elder Care",
+      "description": "葡萄糖胺、鈣質、銀髮保健配方",
+      "icon": "fa-user-md",
+      "background_image": "/assets/images-edit/elder_care.png",
+      "page_url": "elder-care.html",
+      "seo_title": "日日瀅生醫 | 銀髮長青配方 | Elder Care",
+      "seo_description": "專業銀髮族保健食品配方，包括葡萄糖胺、鈣質、維生素D等銀髮保健配方",
+      "seo_keywords": "銀髮保健,葡萄糖胺,鈣質,維生素D,關節保健",
+      "banner_title": "銀髮長青配方",
+      "banner_subtitle": "Elder Care Formula",
+      "formulas": [
+        {
+          "name": "關節保健配方",
+          "ingredients": [
+            "葡萄糖胺",
+            "軟骨素",
+            "MSM",
+            "薑黃萃取"
+          ],
+          "flavors": "原味、檸檬",
+          "image": "/assets/images-edit/filling-machine.webp"
+        },
+        {
+          "name": "鈣質強化配方",
+          "ingredients": [
+            "碳酸鈣",
+            "維生素D3",
+            "鎂",
+            "維生素K2"
+          ],
+          "flavors": "牛奶、香草",
+          "image": "/assets/images-edit/filling-machine-2.png"
+        }
+      ],
+      "published": true,
+      "order": 5
+    },
+    {
+      "id": "child-growth",
+      "title": "幼兒成長",
+      "subtitle": "Child Growth",
+      "description": "鈣質、DHA、兒童成長配方",
+      "icon": "fa-child",
+      "background_image": "/assets/images-edit/child_grow.png",
+      "page_url": "child-growth.html",
+      "seo_title": "日日瀅生醫 | 幼兒成長配方 | Child Growth",
+      "seo_description": "專業幼兒成長保健食品配方，包括鈣質、DHA、益生菌等兒童成長配方",
+      "seo_keywords": "幼兒成長,兒童保健,鈣質,DHA,益生菌",
+      "banner_title": "幼兒成長配方",
+      "banner_subtitle": "Child Growth Formula",
+      "formulas": [
+        {
+          "name": "兒童成長配方",
+          "ingredients": [
+            "鈣質",
+            "DHA",
+            "維生素D",
+            "鋅"
+          ],
+          "flavors": "草莓、香橙、蘋果",
+          "image": "/assets/images-edit/filling-machine.webp"
+        },
+        {
+          "name": "益生菌免疫配方",
+          "ingredients": [
+            "乳酸菌",
+            "維生素C",
+            "鋅",
+            "初乳蛋白"
+          ],
+          "flavors": "原味、水果",
+          "image": "/assets/images-edit/filling-machine-2.png"
+        }
+      ],
+      "published": true,
+      "order": 6
+    }
+  ]
+}
