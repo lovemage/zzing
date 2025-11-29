@@ -29,7 +29,7 @@ results: |
   - ✅ 協助客戶建立美容飲品產品線，營收成長 150%
 testimonial: 產品的品質和口感都超出了我們的期待，消費者的反饋非常正面。這次合作為我們開啟了美容飲品市場的大門。
 gallery:
-  - /assets/images-edit/colligan.avif
+  - /assets/uploads/gemini_generated_image_nhyv3wnhyv3wnhyv.png
 published: true
 ---
 
