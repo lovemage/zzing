@@ -9,11 +9,13 @@
     content="Medick Responsive web template, Bootstrap Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
   <title>日日瀅生醫 | 專業保健食品代工服務 | 首頁</title>
   <link rel="icon" type="image/png" href="assets/icons/like.png">
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style-starter.css">
   <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif !important;
+    }
     .banner-w3l-main {
       position: relative;
       overflow: hidden;
@@ -34,7 +36,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, rgba(0, 77, 107, 0.6) 0%, rgba(0, 163, 224, 0.4) 100%);
       z-index: 1;
     }
     .banner-w3l-main .w3l-banner-content,
@@ -42,18 +44,20 @@
       position: relative;
       z-index: 2;
     }
-    /* 配方卡片樣式 */
+    /* 配方卡片樣式 - 現代化設計 */
     .formula-card {
       position: relative;
-      height: 350px;
+      height: 380px;
       overflow: hidden;
-      border-radius: 15px;
-      transition: transform 0.3s ease;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+      border-radius: 24px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(0, 163, 224, 0.15);
+      background: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.8);
     }
     .formula-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 163, 224, 0.25);
     }
     .formula-card-bg {
       position: absolute;
@@ -63,6 +67,10 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
+      transition: transform 0.5s ease;
+    }
+    .formula-card:hover .formula-card-bg {
+      transform: scale(1.1);
     }
     .formula-card::before {
       content: '';
@@ -71,7 +79,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.25);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0, 59, 92, 0.9));
       z-index: 1;
     }
     .formula-card a {
@@ -79,55 +87,88 @@
       z-index: 2;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-end;
+      align-items: flex-start;
       height: 100%;
-      padding: 40px 30px;
+      padding: 40px;
       text-decoration: none;
       color: #fff;
     }
     .formula-icon {
-      font-size: 48px;
+      font-size: 32px;
       color: #fff;
-      margin-bottom: 20px;
+      margin-bottom: auto;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(5px);
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-top: 10px;
     }
     .formula-card h4 {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
     .formula-card .subtitle {
-      font-size: 16px;
-      color: rgba(255, 255, 255, 0.9);
+      font-size: 14px;
+      color: #00E5FF;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       margin-bottom: 15px;
+      font-weight: 600;
     }
     .formula-card .description {
       font-size: 15px;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.9);
       line-height: 1.6;
       margin: 0;
-      text-align: center;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      height: 0;
+    }
+    .formula-card:hover .description {
+      opacity: 1;
+      transform: translateY(0);
+      height: auto;
+      margin-bottom: 10px;
     }
 
-    /* 服務卡片毛玻璃效果 */
+    /* 服務卡片毛玻璃效果 - 設計感升級 */
     .home-services .box-wrap {
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-      padding: 30px 20px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 20px;
+      padding: 40px 30px;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      height: 100%;
     }
 
     .home-services .box-wrap:hover {
-      background: rgba(255, 255, 255, 0.6);
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 163, 224, 0.2);
+      border-color: #00A3E0;
+    }
+    
+    .home-services .box-wrap .icon {
+        background: rgba(0, 163, 224, 0.1);
+        color: #00A3E0;
+    }
+    
+    .home-services .box-wrap:hover .icon {
+        background: #00A3E0;
+        color: #fff;
     }
   </style>
 </head>
@@ -202,8 +243,17 @@
     <div class="w3l-banner-content">
       <div class="container">
         <div class="bannerhny-info text-center">
-          <h6 class="title-subhny mb-2">保健食品代工</h6>
-          <h3 class="">保健食品專業代工</h3>
+          <h6 class="title-subhny mb-2">專業 • 創新 • 品質</h6>
+          <h3 class="mb-4">為您的品牌打造<br>頂級保健食品</h3>
+          <p class="mb-5 text-white mx-auto" style="opacity: 0.9; font-size: 1.25rem; max-width: 700px;">結合尖端生技與匠心工藝，提供一站式 OEM/ODM 代工服務，助您搶佔市場先機。</p>
+          <div class="d-flex justify-content-center align-items-center">
+            <a class="btn btn-style btn-primary mt-4 mr-3" href="contact.html">
+              立即諮詢 <span class="fa fa-arrow-right ml-2" style="font-size: 0.9em;"></span>
+            </a>
+            <a class="btn btn-style btn-white mt-4" href="services.html">
+              探索服務
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -218,11 +268,11 @@
                   <span class="fa fa-users"></span>
                 </div>
                 <div class="info">
-                  <p>專業</p>
+                  <p>EXPERTISE</p>
                   <h4><a href="#url">專業研發團隊</a></h4>
                 </div>
               </div>
-              <p class="mt-3">擁有專業研發團隊，熟悉各類營養素、植物萃取、益生菌等熱門原料。</p>
+              <p class="mt-3">擁有專業研發團隊，熟悉各類營養素、植物萃取、益生菌等熱門原料，為您打造獨具競爭力的產品。</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 col-sm-12 mt-md-0 mt-4">
@@ -232,12 +282,12 @@
                   <span class="fa fa-shield"></span>
                 </div>
                 <div class="info">
-                  <p>品質</p>
-                  <h4><a href="#url">品質保證</a></h4>
+                  <p>QUALITY</p>
+                  <h4><a href="#url">國際認證品質</a></h4>
 
                 </div>
               </div>
-              <p class="mt-3">採用國際認證製程：FSSC 22000、ISO 22000、HACCP、GMP。</p>
+              <p class="mt-3">嚴格遵循國際標準，擁有 FSSC 22000、ISO 22000、HACCP、GMP 等多項認證，品質安全有保障。</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-4">
@@ -247,12 +297,12 @@
                   <span class="fa fa-globe"></span>
                 </div>
                 <div class="info">
-                  <p>服務</p>
-                  <h4><a href="#url">一站式服務</a></h4>
+                  <p>SERVICE</p>
+                  <h4><a href="#url">一站式整合服務</a></h4>
 
                 </div>
               </div>
-              <p class="mt-3">提供從原料選擇、配方設計、劑型開發到包裝設計的完整代工流程。</p>
+              <p class="mt-3">從原料篩選、配方設計、劑型開發到包裝設計，提供全方位 OEM/ODM 代工解決方案，讓您省心省力。</p>
             </div>
           </div>
         </div>
@@ -278,66 +328,70 @@
       <div class="row w3l-content-inf mt-lg-5 pt-lg-5">
         <div class="col-lg-5 w3l-content-left mt-lg-4">
           <h6 class="title-subhny mb-2">關於我們</h6>
-          <h3 class="title-w3l mb-4">打造健康新世代，我們是您最堅實的代工夥伴</h3>
+          <h3 class="title-w3l mb-4">打造健康新世代<br>我們是您最堅實的<br>代工夥伴</h3>
         </div>
         <div class="col-lg-7 w3l-content-right pl-lg-5 mt-lg-4">
-          <p class="para-sub pr-lg-5 mt-md-4 mt-3 mx-auto">日日瀅生醫專注於保健食品的研發與製造，提供從原料選擇、配方設計、劑型開發、包裝設計到法規諮詢的完整代工流程，協助品牌快速進入市場、穩健成長。
+          <p class="para-sub pr-lg-5 mt-md-4 mt-3 mx-auto" style="font-size: 1.15rem; line-height: 1.8;">
+            日日瀅生醫專注於保健食品的研發與製造，結合尖端生技與市場洞察，為您提供從原料選擇、配方設計、劑型開發、包裝設計到法規諮詢的一站式整合服務。
           </p>
-          <p class="para-sub pr-lg-5 mt-md-4 mt-3 mx-auto">我們擁有專業研發團隊，採用國際認證製程，支援多種劑型開發，提供客製化優勢與量身打造的品牌服務。
+          <p class="para-sub pr-lg-5 mt-md-4 mt-3 mx-auto" style="font-size: 1.15rem; line-height: 1.8;">
+            我們擁有專業研發團隊，採用國際認證製程，支援多種劑型開發，致力於提供客製化解決方案，協助您的品牌快速進入市場，建立競爭優勢。
           </p>
-          <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="about.html">
-            了解更多</a>
+          <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="about.html">
+            深入了解 <span class="fa fa-angle-right ml-2"></span>
+          </a>
         </div>
       </div>
     </div>
   </div>
   <!--//w3l-content-1-->
   <!-- /w3l-content-2-->
-  <div class="w3l-content-2 py-5">
-    <div class="container py-md-5 py-2">
-      <div class="row whybox-wrap">
-        <div class="col-lg-6 whybox-wrap-left">
-          <div class="title-content text-left">
-            <h6 class="title-subhny">專業代工服務</h6>
-            <h3 class="title-w3l mb-sm-5 mb-4 pb-2">為什麼選擇日日瀅生醫？</h3>
-          </div>
-
-          <div class="whybox-wrap-grid mb-4">
-            <div class="icon">
-              <span class="fa fa-calendar"></span>
-            </div>
-            <div class="info">
-              <h4><a href="#url">豐富代工經驗</a></h4>
-              <p class="mt-3">多年保健食品代工經驗，熟悉各類產品開發流程與市場需求。</p>
-            </div>
-          </div>
-          <div class="whybox-wrap-grid mb-4">
-            <div class="icon">
-              <span class="fa fa-pencil-square-o"></span>
-            </div>
-            <div class="info">
-              <h4><a href="#url">免費諮詢服務</a></h4>
-              <p class="mt-3">提供專業的產品開發諮詢，協助客戶制定最適合的代工方案。</p>
-            </div>
-          </div>
-          <div class="whybox-wrap-grid mb-4">
-            <div class="icon">
-              <span class="fa fa-shield"></span>
-            </div>
-            <div class="info">
-              <h4><a href="#url">品質保證</a></h4>
-              <p class="mt-3">採用國際認證製程，提供完整產品檢驗報告與成分標示。</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 whybox-wrap-right pl-lg-5 position-relative mt-lg-0 mt-4">
-          <img src="assets/images/ab.png" alt="" class="img-fluid radius-image">
-
+  <section class="w3l-content-2 py-5" style="background-color: #f8f9fa;">
+    <div class="container py-md-5 py-4">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h6 class="title-subhny mb-2">核心優勢</h6>
+          <h3 class="title-w3l mb-4">為什麼選擇日日瀅生醫？</h3>
+          <p class="para-sub mx-auto">我們不僅是代工廠，更是您的品牌孵化器。從概念到成品，我們提供全方位的專業支持。</p>
         </div>
       </div>
-
+      <div class="row whybox-wrap">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="whybox-wrap-grid h-100 p-4 bg-white rounded shadow-sm text-center">
+            <div class="icon mb-3 mx-auto">
+              <span class="fa fa-flask" style="font-size: 2.5rem; color: var(--primary-color);"></span>
+            </div>
+            <div class="info">
+              <h4 class="mb-3"><a href="#url">創新配方研發</a></h4>
+              <p>掌握市場趨勢，開發獨家機能配方，助您打造差異化產品，搶佔市場先機。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="whybox-wrap-grid h-100 p-4 bg-white rounded shadow-sm text-center">
+            <div class="icon mb-3 mx-auto">
+              <span class="fa fa-cogs" style="font-size: 2.5rem; color: var(--primary-color);"></span>
+            </div>
+            <div class="info">
+              <h4 class="mb-3"><a href="#url">先進製程技術</a></h4>
+              <p>引進自動化生產設備，嚴格控管生產流程，確保產品品質穩定、交期準時。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="whybox-wrap-grid h-100 p-4 bg-white rounded shadow-sm text-center">
+            <div class="icon mb-3 mx-auto">
+              <span class="fa fa-check-circle" style="font-size: 2.5rem; color: var(--primary-color);"></span>
+            </div>
+            <div class="info">
+              <h4 class="mb-3"><a href="#url">嚴格品質把關</a></h4>
+              <p>通過多項國際認證，建立完善的品管體系，讓您的產品安全無虞，消費者更安心。</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
   <!-- //w3l-content-2-->
   <!-- /w3l-content-4-->
   <section class="w3l-content-4 py-5" id="features">
@@ -363,24 +417,24 @@
     <div class="gallery-inner container py-lg-0 py-3">
       <div class="row stats-con">
         <div class="col-lg-3 col-6 stats_info counter_grid">
-          <span class="fa fa-users"></span>
-          <p class="counter">1100</p>
-          <h4>成功案例</h4>
+          <span class="fa fa-flask"></span>
+          <p class="counter">500</p>
+          <h4>獨家配方</h4>
         </div>
         <div class="col-lg-3 col-6 stats_info counter_grid1">
-          <span class="fa fa-laptop"></span>
-          <p class="counter">1020</p>
-          <h4>代工產品</h4>
+          <span class="fa fa-industry"></span>
+          <p class="counter">1000</p>
+          <h4>成功代工</h4>
         </div>
         <div class="col-lg-3 col-6 stats_info counter_grid mt-lg-0 mt-5">
           <span class="fa fa-smile-o"></span>
-          <p class="counter">912</p>
-          <h4>滿意客戶</h4>
+          <p class="counter">98</p>
+          <h4>客戶滿意度(%)</h4>
         </div>
         <div class="col-lg-3 col-6 stats_info counter_grid2 mt-lg-0 mt-5">
-          <span class="fa fa-trophy"></span>
-          <p class="counter">80</p>
-          <h4>品牌合作</h4>
+          <span class="fa fa-certificate"></span>
+          <p class="counter">20</p>
+          <h4>國際認證</h4>
         </div>
       </div>
     </div>
@@ -554,7 +608,7 @@
             <div class="footer-logo mb-3">
               <a class="navbar-brand" href="index.html">日日瀅生醫</a>
             </div>
-            <p>專業保健食品代工服務，打造健康新世代，我們是您最堅實的代工夥伴。</p>
+            <p>日日瀅生醫致力於提供高品質的保健食品代工服務，結合專業研發與創新技術，為您的品牌創造最大價值。</p>
             <ul class="mt-3">
               <li><a href="tel:04-22017588"><span class="fa fa-phone"></span> 04-22017588</a></li>
               <li><a href="mailto:service@ririyingbio.com" class="mail"><span class="fa fa-envelope-open-o"></span>
@@ -599,7 +653,7 @@
   <section class="w3l-copyright">
     <div class="container">
       <div class="row bottom-copies">
-        <p class="col-lg-8 copy-footer-29">Copyright &copy; 2024.日日瀅生醫 版權所有.</p>
+        <p class="col-lg-8 copy-footer-29">Copyright &copy; 2025 日日瀅生醫 Ri Ri Ying Bio-Medical Co., Ltd. All Rights Reserved.</p>
 
         <div class="col-lg-4 main-social-footer-29">
           <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>

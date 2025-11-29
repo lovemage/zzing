@@ -41,19 +41,30 @@ function parseFrontMatter(content) {
       continue;
     }
 
-    // 處理簡單的鍵值對
-    const simpleMatch = line.match(/^(\w+):\s*"?([^"]*)"?$/);
+    // 處理簡單的鍵值對 (更穩健的 Regex)
+    // 匹配 key: value，其中 value 可以包含冒號，也可以被引號包圍
+    const simpleMatch = line.match(/^(\w+):\s*(.*)$/);
     if (simpleMatch) {
       const key = simpleMatch[1];
       let value = simpleMatch[2].trim();
 
-      // 處理布爾值
-      if (value === 'true') value = true;
-      if (value === 'false') value = false;
+      // 如果是多行標記，跳過交給下面的邏輯處理
+      if (value === '|' || value === '>' || value.startsWith('|-') || value.startsWith('>-')) {
+        // Fall through to multiline handler
+      } else {
+        // 去除引號
+        if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+          value = value.substring(1, value.length - 1);
+        }
+        
+        // 處理布爾值
+        if (value === 'true') value = true;
+        if (value === 'false') value = false;
 
-      data[key] = value;
-      i++;
-      continue;
+        data[key] = value;
+        i++;
+        continue;
+      }
     }
 
     // 處理多行值 (|)
@@ -186,4 +197,3 @@ function main() {
 
 // 執行主函數
 main();
-

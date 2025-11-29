@@ -26,6 +26,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style-starter.css">
+  
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 
   <style>
     .banner-w3l-main {
@@ -86,13 +90,30 @@
       padding: 3rem;
     }
 
+    /* 內容樣式優化 */
+    .case-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
     /* SEO優化的文章結構樣式 */
     .case-content h1 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 700;
       color: #333;
       margin-bottom: 1rem;
-      line-height: 1.2;
+      line-height: 1.3;
+    }
+    
+    @media (max-width: 768px) {
+      .case-content h1 {
+        font-size: 1.8rem;
+      }
+      .case-content {
+        padding: 20px;
+      }
     }
 
     .case-content h2 {
@@ -123,19 +144,104 @@
       padding: 1rem;
       border-radius: 8px;
       margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
     .case-meta .meta-item {
-      display: inline-block;
-      margin-right: 1.5rem;
-      color: #667eea;
-      font-weight: 500;
+      display: flex;
+      align-items: center;
+      color: #555;
+      font-size: 0.95rem;
+    }
+    
+    .case-meta .meta-item i {
+      color: #ff6600; /* 使用品牌色 */
+      margin-right: 8px;
     }
 
+    .case-services-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .service-item {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #ff6600;
+      transition: transform 0.3s ease;
+    }
+    
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .service-item h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .service-item p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    .testimonial-box {
+      background: #fff;
+      border: 1px solid #eee;
+      padding: 30px;
+      border-radius: 10px;
+      position: relative;
+    }
+    
+    .testimonial-box::before {
+      content: '\f10d';
+      font-family: 'FontAwesome';
+      font-size: 30px;
+      color: #ff6600;
+      opacity: 0.2;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    
     .case-gallery img {
       border-radius: 8px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom: 1rem;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .case-gallery img:hover {
+      transform: scale(1.02);
+    }
+    
+    /* Markdown 內容樣式 */
+    .markdown-content h3 {
+      font-size: 1.4rem;
+      margin-top: 1.5rem;
+      color: #444;
+    }
+    
+    .markdown-content ul, .markdown-content ol {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+    }
+    
+    .markdown-content li {
+      margin-bottom: 0.5rem;
+      color: #666;
     }
   </style>
 </head>
@@ -324,32 +430,26 @@
                   </div>
                 </section>
 
-                <section class="mb-5">
+                <section class="mb-5" id="section-services" style="display: none;">
                   <h2>服務內容</h2>
                   <div id="case-services">
-                    <ul>
-                      <li><strong>配方研發與優化</strong> - 根據客戶需求設計專屬配方</li>
-                      <li><strong>原料採購與品質控制</strong> - 嚴選優質原料，確保品質穩定</li>
-                      <li><strong>生產製造與包裝</strong> - 採用先進設備，精密生產流程</li>
-                      <li><strong>品質檢驗與認證</strong> - 多重檢驗程序，符合國際標準</li>
-                      <li><strong>法規諮詢與標示設計</strong> - 專業法規指導，合規標示設計</li>
-                    </ul>
+                    <!-- 動態載入服務內容 -->
                   </div>
                 </section>
 
-                <section class="mb-5">
+                <section class="mb-5" id="section-results" style="display: none;">
                   <h2>專案成果</h2>
-                  <div id="case-results">
-                    <p>透過我們的專業服務，客戶成功推出高品質的保健食品，獲得市場良好反響，建立了穩固的品牌信譽。此案例充分展現了我們在代工領域的技術實力和服務品質。</p>
+                  <div id="case-results" class="markdown-content">
+                    <!-- 動態載入成果內容 -->
                   </div>
                 </section>
 
                 <section class="mb-5" id="case-testimonial-section" style="display: none;">
                   <h2>客戶見證</h2>
-                  <blockquote class="blockquote">
-                    <p id="case-testimonial" class="mb-0"></p>
-                    <footer class="blockquote-footer mt-2">客戶回饋</footer>
-                  </blockquote>
+                  <div class="testimonial-box">
+                    <p id="case-testimonial" class="mb-0 font-italic"></p>
+                    <div class="mt-3 text-right text-muted">- 客戶回饋</div>
+                  </div>
                 </section>
 
                 <section class="mb-5" id="case-gallery-section" style="display: none;">
@@ -514,42 +614,69 @@
     return;
   }
 
-  // 如果有指定檔案，直接載入該檔案
-  if (caseFile) {
-    loadCaseFromFile(caseFile);
-    return;
+  // 初始化 Marked 選項
+  if (typeof marked !== 'undefined') {
+    marked.setOptions({
+      breaks: true,
+      gfm: true
+    });
   }
 
-  // 否則從 cases.json 載入
-  fetch('content/cases.json?_=' + Date.now())
-    .then(res => res.json())
-    .then(data => {
-      const caseItem = data.items.find(item =>
-        item.title.includes(caseId) ||
-        item.url === 'case-' + caseId + '.html' ||
-        item.category === caseId
-      );
+  // 1. 如果有指定檔案，直接載入該檔案 (優先)
+  if (caseFile) {
+    loadCaseFromFile(caseFile);
+  } 
+  // 2. 否則從 cases.json 載入 (相容舊連結)
+  else {
+    fetch('content/cases.json?_=' + Date.now())
+      .then(res => res.json())
+      .then(data => {
+        // 嘗試找到對應的案例
+        const caseItem = data.items.find(item =>
+          item.title.includes(caseId) ||
+          item.url.includes(caseId) ||
+          item.category === caseId
+        );
 
-      if (caseItem) {
-        displayCase(caseItem, data.items);
-      } else {
+        if (caseItem) {
+          // 嘗試從 url 參數中提取文件名
+          // url 格式通常是 "case-detail.html?file=filename.md"
+          const match = caseItem.url.match(/file=([^&]+)/);
+          if (match && match[1]) {
+            loadCaseFromFile(match[1]);
+          } else {
+            // 如果無法提取文件名，則顯示基本信息 (降級處理)
+            displayBasicCase(caseItem, data.items);
+          }
+        } else {
+          showNotFound();
+        }
+      })
+      .catch(err => {
+        console.error('載入案例資料失敗:', err);
         showNotFound();
-      }
-    })
-    .catch(err => {
-      console.error('載入案例資料失敗:', err);
-      showNotFound();
-    });
+      });
+  }
 
-  // 載入 Markdown 案例檔案
+  // 載入 Markdown 案例檔案並解析
   function loadCaseFromFile(filename) {
     fetch(`content/cases/${filename}?_=` + Date.now())
-      .then(res => res.text())
+      .then(res => {
+        if (!res.ok) throw new Error('File not found');
+        return res.text();
+      })
       .then(content => {
-        const caseData = parseMarkdownCase(content);
-        if (caseData) {
-          displayDetailedCase(caseData);
-        } else {
+        try {
+          // 解析 Front Matter 和 Body
+          const caseData = parseMarkdownWithYaml(content);
+          if (caseData) {
+            displayDetailedCase(caseData);
+            loadRelatedCases(caseData.title, caseData.category);
+          } else {
+            showNotFound();
+          }
+        } catch (e) {
+          console.error('解析 Markdown 失敗:', e);
           showNotFound();
         }
       })
@@ -559,97 +686,200 @@
       });
   }
 
-  // 解析 Markdown 案例檔案
-  function parseMarkdownCase(content) {
+  // 使用 js-yaml 解析 Markdown
+  function parseMarkdownWithYaml(content) {
+    if (typeof jsyaml === 'undefined') {
+      console.error('js-yaml 庫未加載');
+      return null;
+    }
+
     const frontMatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
     if (!frontMatterMatch) return null;
 
     const frontMatter = frontMatterMatch[1];
     const body = content.replace(/^---\n[\s\S]*?\n---\n/, '');
 
-    // 簡單的 YAML 解析
-    const data = {};
-    frontMatter.split('\n').forEach(line => {
-      const match = line.match(/^(\w+):\s*(.*)$/);
-      if (match) {
-        const key = match[1];
-        let value = match[2].replace(/^["']|["']$/g, '');
-        if (value === 'true') value = true;
-        if (value === 'false') value = false;
-        data[key] = value;
-      }
-    });
-
-    data.body = body;
-    return data;
+    try {
+      const data = jsyaml.load(frontMatter);
+      data.body = body; // 主體內容 (雖然 CMS 主要是用 overview 和 results 欄位)
+      return data;
+    } catch (e) {
+      console.error('YAML 解析錯誤:', e);
+      return null;
+    }
   }
   
-  function displayCase(caseItem, allCases) {
-    // 隱藏載入中
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('case-content').style.display = 'block';
-
-    // 更新頁面標題
-    document.getElementById('page-title').textContent = caseItem.title + ' - 日日瀅生醫';
-    document.getElementById('hero-title').textContent = caseItem.title;
-    document.getElementById('breadcrumb-title').textContent = caseItem.title;
-
-    // 更新案例內容
-    document.getElementById('case-image').src = caseItem.image;
-    document.getElementById('case-image').alt = caseItem.title;
-    document.getElementById('case-title').textContent = caseItem.title;
-    document.getElementById('case-date').textContent = caseItem.date;
-    document.getElementById('case-category').textContent = caseItem.category;
-    document.getElementById('case-excerpt').textContent = caseItem.excerpt;
-
-    // 顯示相關案例
-    const relatedCases = allCases.filter(item => item.title !== caseItem.title).slice(0, 3);
-    const relatedHtml = relatedCases.map(item =>
-      `<div class="related-case mb-3">
-        <a href="case-detail.html?id=${encodeURIComponent(item.category)}" class="d-flex">
-          <img src="${item.image}" alt="${item.title}" style="width: 60px; height: 60px; object-fit: cover; margin-right: 10px;">
-          <div>
-            <h6 class="mb-1">${item.title}</h6>
-            <small class="text-muted">${item.category}</small>
-          </div>
-        </a>
-      </div>`
-    ).join('');
-    document.getElementById('related-cases').innerHTML = relatedHtml;
-  }
-
+  // 顯示詳細案例內容
   function displayDetailedCase(caseData) {
     // 隱藏載入中
     document.getElementById('loading').style.display = 'none';
     document.getElementById('case-content').style.display = 'block';
 
-    // 更新頁面標題
-    document.getElementById('page-title').textContent = caseData.title + ' - 日日瀅生醫';
+    // 1. 更新頁面標題和 Meta 標籤 (SEO)
+    document.title = `${caseData.title} | 產品案例 | 日日瀅生醫`;
+    document.querySelector('meta[name="description"]').setAttribute('content', caseData.excerpt || caseData.title);
+    
+    // Open Graph
+    document.querySelector('meta[property="og:title"]').setAttribute('content', caseData.title);
+    document.querySelector('meta[property="og:description"]').setAttribute('content', caseData.excerpt || '');
+    document.querySelector('meta[property="og:image"]').setAttribute('content', caseData.image || '');
+
+    // 2. 更新基本資訊
     document.getElementById('hero-title').textContent = caseData.title;
-    document.getElementById('breadcrumb-title').textContent = caseData.title;
+    
+    const imgEl = document.getElementById('case-image');
+    if (caseData.image) {
+      imgEl.src = caseData.image;
+      imgEl.alt = caseData.title;
+    } else {
+      imgEl.style.display = 'none';
+    }
 
-    // 更新案例內容
-    document.getElementById('case-image').src = caseData.image;
-    document.getElementById('case-image').alt = caseData.title;
     document.getElementById('case-title').textContent = caseData.title;
-    document.getElementById('case-date').textContent = caseData.date;
-    document.getElementById('case-category').textContent = caseData.category;
-    document.getElementById('case-excerpt').textContent = caseData.excerpt;
-
-    // 更新詳細內容
-    if (caseData.overview) {
-      document.getElementById('case-overview').innerHTML = caseData.overview.replace(/\n/g, '<br>');
+    
+    // 日期格式化
+    if (caseData.date) {
+      const dateObj = new Date(caseData.date);
+      const dateStr = dateObj.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
+      document.getElementById('case-date').textContent = dateStr;
     }
+    
+    document.getElementById('case-category').textContent = caseData.category || '一般案例';
+    document.getElementById('case-excerpt').textContent = caseData.excerpt || '';
 
+    // 3. 渲染 Markdown 欄位 (Overview & Results)
+    renderMarkdownField('case-overview', caseData.overview);
+    
     if (caseData.results) {
-      document.getElementById('case-results').innerHTML = caseData.results.replace(/\n/g, '<br>');
+      document.getElementById('section-results').style.display = 'block';
+      renderMarkdownField('case-results', caseData.results);
     }
 
-    // 更新服務內容（如果有的話）
-    if (caseData.services) {
-      // 這裡需要解析 YAML 格式的服務列表
-      // 簡化處理，直接顯示基本服務
+    // 4. 渲染服務列表 (Services)
+    if (caseData.services && Array.isArray(caseData.services) && caseData.services.length > 0) {
+      document.getElementById('section-services').style.display = 'block';
+      const servicesHtml = `<ul class="case-services-list">
+        ${caseData.services.map(service => `
+          <li class="service-item">
+            <h4>${service.title}</h4>
+            ${service.description ? `<p>${service.description}</p>` : ''}
+          </li>
+        `).join('')}
+      </ul>`;
+      document.getElementById('case-services').innerHTML = servicesHtml;
     }
+
+    // 5. 渲染客戶見證 (Testimonial)
+    if (caseData.testimonial) {
+      document.getElementById('case-testimonial-section').style.display = 'block';
+      document.getElementById('case-testimonial').textContent = caseData.testimonial;
+    }
+
+    // 6. 渲染圖片集 (Gallery)
+    if (caseData.gallery && Array.isArray(caseData.gallery) && caseData.gallery.length > 0) {
+      document.getElementById('case-gallery-section').style.display = 'block';
+      const galleryHtml = caseData.gallery.map(item => {
+        // 相容舊格式 (字串) 和新格式 (物件)
+        const imgSrc = typeof item === 'string' ? item : (item.image || item);
+        return `
+        <div class="col-md-4 col-6 mb-3">
+          <img src="${imgSrc}" class="img-fluid rounded" alt="Gallery Image" onclick="window.open(this.src, '_blank')">
+        </div>
+      `}).join('');
+      document.getElementById('case-gallery').innerHTML = galleryHtml;
+    }
+
+    // 7. 更新結構化數據 Schema.org
+    updateStructuredData(caseData);
+  }
+
+  // 渲染 Markdown 輔助函數
+  function renderMarkdownField(elementId, content) {
+    const el = document.getElementById(elementId);
+    if (!content) {
+      el.innerHTML = '';
+      return;
+    }
+    
+    if (typeof marked !== 'undefined') {
+      el.innerHTML = marked.parse(content);
+      el.classList.add('markdown-content');
+    } else {
+      // 降級處理：保留換行
+      el.innerHTML = content.replace(/\n/g, '<br>');
+    }
+  }
+
+  // 更新結構化數據
+  function updateStructuredData(caseData) {
+    const script = document.getElementById('case-structured-data');
+    if (script) {
+      const data = JSON.parse(script.textContent);
+      data.headline = caseData.title;
+      data.description = caseData.excerpt;
+      data.image = caseData.image ? [window.location.origin + caseData.image] : [];
+      data.datePublished = caseData.date;
+      data.dateModified = caseData.date; // 假設修改日期同發布日期
+      script.textContent = JSON.stringify(data, null, 2);
+    }
+  }
+
+  // 載入相關案例 (Sidebar)
+  function loadRelatedCases(currentTitle, category) {
+    fetch('content/cases.json?_=' + Date.now())
+      .then(res => res.json())
+      .then(data => {
+        // 過濾掉當前案例，優先顯示同分類
+        let related = data.items.filter(item => item.title !== currentTitle);
+        
+        // 簡單排序：同分類優先
+        related.sort((a, b) => {
+          if (a.category === category && b.category !== category) return -1;
+          if (a.category !== category && b.category === category) return 1;
+          return 0;
+        });
+
+        // 取前 3 個
+        const topRelated = related.slice(0, 3);
+        
+        const relatedHtml = topRelated.map(item =>
+          `<div class="related-case mb-3 border-bottom pb-2">
+            <a href="${item.url}" class="d-flex text-decoration-none text-dark">
+              <div style="width: 70px; height: 70px; flex-shrink: 0; margin-right: 15px;">
+                <img src="${item.image}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;">
+              </div>
+              <div>
+                <h6 class="mb-1 font-weight-bold" style="font-size: 0.95rem; line-height: 1.4;">${item.title}</h6>
+                <small class="text-primary">${item.category}</small>
+              </div>
+            </a>
+          </div>`
+        ).join('');
+        
+        const container = document.getElementById('related-cases');
+        if (container) container.innerHTML = relatedHtml;
+      })
+      .catch(console.warn);
+  }
+
+  // 顯示基本案例 (當無法加載詳細 Markdown 時的降級顯示)
+  function displayBasicCase(caseItem) {
+    // 隱藏載入中
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('case-content').style.display = 'block';
+
+    document.getElementById('page-title').textContent = caseItem.title + ' - 日日瀅生醫';
+    document.getElementById('hero-title').textContent = caseItem.title;
+    
+    document.getElementById('case-image').src = caseItem.image;
+    document.getElementById('case-title').textContent = caseItem.title;
+    document.getElementById('case-date').textContent = caseItem.date;
+    document.getElementById('case-category').textContent = caseItem.category;
+    document.getElementById('case-excerpt').textContent = caseItem.excerpt;
+    
+    document.getElementById('case-overview').innerHTML = '<p>' + caseItem.excerpt + '</p><p>（詳細內容載入中或無法顯示...）</p>';
+    
+    loadRelatedCases(caseItem.title, caseItem.category);
   }
   
   function showNotFound() {

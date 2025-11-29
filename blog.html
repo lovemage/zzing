@@ -206,12 +206,47 @@
   <!--/Blog-Posts-->
   <section class="w3l-blog py-5" id="blog">
     <div class="container py-lg-5 py-md-4 py-2">
-      <div class="title-content text-center">
+      <div class="title-content text-center mb-5">
         <h6 class="title-subhny text-center">專業代工</h6>
         <h3 class="title-w3l pb-sm-o pb-2 text-center">產品案例展示</h3>
         <p class="para-sub text-center mt-3 mx-auto">以下是我們為客戶成功代工的產品案例，展現我們在配方研發、生產製造、品質控管等方面的專業實力。</p>
       </div>
-      <div id="blog-list" class="row inner-sec-w3ls"></div>
+
+      <!-- 篩選與搜尋工具列 -->
+      <div class="row mb-5">
+        <div class="col-lg-8 mx-auto">
+          <div class="filter-bar text-center">
+            <div class="btn-group flex-wrap" role="group" aria-label="Category Filters" id="category-filters">
+              <button type="button" class="btn btn-outline-primary active" data-filter="all">全部</button>
+              <button type="button" class="btn btn-outline-primary" data-filter="膠囊代工">膠囊代工</button>
+              <button type="button" class="btn btn-outline-primary" data-filter="粉劑代工">粉劑代工</button>
+              <button type="button" class="btn btn-outline-primary" data-filter="液態代工">液態代工</button>
+              <button type="button" class="btn btn-outline-primary" data-filter="錠劑代工">錠劑代工</button>
+              <button type="button" class="btn btn-outline-primary" data-filter="軟膠囊代工">軟膠囊代工</button>
+            </div>
+            <div class="mt-3 position-relative" style="max-width: 400px; margin: 0 auto;">
+              <input type="text" id="search-input" class="form-control rounded-pill pl-4" placeholder="搜尋案例關鍵字...">
+              <span class="fa fa-search position-absolute text-muted" style="right: 15px; top: 10px;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="blog-list" class="row inner-sec-w3ls">
+        <!-- 載入中動畫 -->
+        <div class="col-12 text-center py-5">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 無搜尋結果提示 -->
+      <div id="no-results" class="text-center py-5" style="display: none;">
+        <i class="fa fa-search fa-3x text-muted mb-3"></i>
+        <h4 class="text-muted">沒有找到符合條件的案例</h4>
+        <button class="btn btn-primary mt-3" onclick="resetFilters()">顯示所有案例</button>
+      </div>
     </div>
   </section>
   <!--//Blog-Posts-->
@@ -267,41 +302,148 @@
 
   <script>
     (function(){
-      // 載入產品案例資料
-      fetch('content/cases.json?_=' + Date.now())
-        .then(function(res){ return res.json(); })
-        .then(function(data){
-          var wrap = document.getElementById('blog-list');
-          if(!wrap || !data || !data.items) return;
-          var html = data.items.map(function(item){
-            // 生成動態頁面連結
-            var dynamicUrl = 'case-detail.html?id=' + encodeURIComponent(item.category || item.title);
-            // 如果有原始 URL，優先使用原始 URL
-            var url = item.url || dynamicUrl;
+      let allCases = [];
+      let currentFilter = 'all';
+      let currentSearch = '';
 
-            return '\n<div class="col-lg-4 col-md-6 about-in blog-grid-info text-left mt-5">\n' +
-              '  <div class="card img">\n' +
-              '    <div class="card-body img">\n' +
-              '      <a href="' + url + '" class="d-block">\n' +
-              '        <img src="' + item.image + '" alt="' + (item.title||'') + '" class="img-fluid radius-image">\n' +
-              '      </a>\n' +
-              '      <div class="blog-des mt-4">\n' +
-              '        <h6 class="card-cap mb-2"><a href="' + url + '">' + (item.category || '產品案例') + '</a></h6>\n' +
-              '        <h5 class="card-title mb-2"><a href="' + url + '">' + (item.title||'') + '</a></h5>\n' +
-              '        <ul class="admin-post mb-3">\n' +
-              '          <li><span class="fa fa-calendar"></span> ' + (item.date || '') + '</li>\n' +
-              '          <li><span class="fa fa-tag"></span> ' + (item.category || '') + '</li>\n' +
-              '        </ul>\n' +
-              '        <p>' + (item.excerpt||'') + '</p>\n' +
-              '        <a href="' + url + '" class="btn btn-primary btn-sm mt-2">查看詳情</a>\n' +
-              '      </div>\n' +
-              '    </div>\n' +
-              '  </div>\n' +
-              '</div>';
-          }).join('');
-          wrap.innerHTML = html;
-        })
-        .catch(function(err){ console.warn('Load cases failed', err); });
+      // 初始化
+      function init() {
+        fetch('content/cases.json?_=' + Date.now())
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.items) {
+              allCases = data.items;
+              // 提取所有分類並更新按鈕
+              updateFilterButtons(allCases);
+              renderCases();
+            }
+          })
+          .catch(err => {
+            console.error('Load cases failed', err);
+            document.getElementById('blog-list').innerHTML = '<div class="col-12 text-center text-danger">載入失敗，請稍後再試</div>';
+          });
+
+        // 綁定篩選按鈕事件
+        document.getElementById('category-filters').addEventListener('click', function(e) {
+          if (e.target.tagName === 'BUTTON') {
+            // 更新按鈕狀態
+            document.querySelectorAll('#category-filters button').forEach(btn => btn.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            // 更新篩選條件
+            currentFilter = e.target.getAttribute('data-filter');
+            renderCases();
+          }
+        });
+
+        // 綁定搜尋事件
+        document.getElementById('search-input').addEventListener('input', function(e) {
+          currentSearch = e.target.value.toLowerCase().trim();
+          renderCases();
+        });
+      }
+
+      // 動態更新分類按鈕 (如果有新的分類)
+      function updateFilterButtons(cases) {
+        const categories = new Set(['膠囊代工', '粉劑代工', '液態代工', '錠劑代工', '軟膠囊代工']);
+        cases.forEach(item => {
+          if (item.category) categories.add(item.category);
+        });
+        
+        // 這裡可以選擇是否動態生成按鈕，目前保持靜態但確保邏輯正確
+      }
+
+      // 渲染案例列表
+      function renderCases() {
+        const wrap = document.getElementById('blog-list');
+        const noResults = document.getElementById('no-results');
+        
+        // 篩選數據
+        const filteredCases = allCases.filter(item => {
+          const matchCategory = currentFilter === 'all' || item.category === currentFilter;
+          const matchSearch = !currentSearch || 
+            (item.title && item.title.toLowerCase().includes(currentSearch)) || 
+            (item.excerpt && item.excerpt.toLowerCase().includes(currentSearch));
+          return matchCategory && matchSearch;
+        });
+
+        // 顯示/隱藏無結果提示
+        if (filteredCases.length === 0) {
+          wrap.innerHTML = '';
+          noResults.style.display = 'block';
+          return;
+        } else {
+          noResults.style.display = 'none';
+        }
+
+        // 生成 HTML
+        const html = filteredCases.map(item => {
+          // 確保 URL 正確
+          // 如果 url 屬性不存在，則構建它
+          let url = item.url;
+          if (!url) {
+            // 嘗試構建基於 category 的 ID，或者直接使用 case-detail.html
+             url = 'case-detail.html?id=' + encodeURIComponent(item.category || item.title);
+          }
+
+          return `
+            <div class="col-lg-4 col-md-6 about-in blog-grid-info text-left mt-5">
+              <div class="card img shadow-sm h-100 border-0" style="transition: transform 0.3s; overflow: hidden;">
+                <div class="card-body img p-0 d-flex flex-column">
+                  <a href="${url}" class="d-block overflow-hidden" style="height: 240px;">
+                    <img src="${item.image}" alt="${item.title || ''}" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
+                  </a>
+                  <div class="blog-des p-4 d-flex flex-column flex-grow-1">
+                    <h6 class="card-cap mb-2 text-primary font-weight-bold" style="font-size: 0.85rem; letter-spacing: 1px;">
+                      ${item.category || '產品案例'}
+                    </h6>
+                    <h5 class="card-title mb-3 font-weight-bold">
+                      <a href="${url}" class="text-dark text-decoration-none">${item.title || ''}</a>
+                    </h5>
+                    <ul class="admin-post mb-3 list-unstyled d-flex text-muted small">
+                      <li class="mr-3"><span class="fa fa-calendar mr-1"></span> ${item.date || ''}</li>
+                    </ul>
+                    <p class="mb-4 text-secondary" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                      ${item.excerpt || ''}
+                    </p>
+                    <div class="mt-auto">
+                      <a href="${url}" class="btn btn-primary btn-sm px-4 rounded-pill">
+                        查看詳情 <span class="fa fa-arrow-right ml-1" style="font-size: 0.8em;"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+        }).join('');
+
+        wrap.innerHTML = html;
+        
+        // 添加 hover 效果
+        document.querySelectorAll('.card.img').forEach(card => {
+          card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+            card.querySelector('img').style.transform = 'scale(1.1)';
+          });
+          card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+            card.querySelector('img').style.transform = 'scale(1)';
+          });
+        });
+      }
+
+      // 公開重置函數
+      window.resetFilters = function() {
+        currentFilter = 'all';
+        currentSearch = '';
+        document.getElementById('search-input').value = '';
+        document.querySelectorAll('#category-filters button').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-filter') === 'all');
+        });
+        renderCases();
+      };
+
+      init();
     })();
   </script>
 
@@ -355,4 +497,3 @@
 </body>
 
 </html>
-
