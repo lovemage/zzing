@@ -63,55 +63,58 @@ const ProductsList: React.FC = () => {
 
                 {/* Product Detail Modal */}
                 {selectedProduct && (
-                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 sm:p-6 bg-slate-900/60 backdrop-blur-sm" onClick={() => setSelectedProduct(null)}>
                         <div
-                            className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"
-                            onClick={() => setSelectedProduct(null)}
-                        ></div>
-                        <div className="relative bg-white rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col md:flex-row overflow-hidden animate-in zoom-in-95 duration-300">
-
+                            className="relative bg-white w-full h-full sm:h-auto sm:max-h-[90vh] sm:rounded-3xl shadow-2xl flex flex-col md:flex-row overflow-hidden animate-in zoom-in-95 duration-300 sm:max-w-5xl"
+                            onClick={e => e.stopPropagation()}
+                        >
                             <button
                                 onClick={() => setSelectedProduct(null)}
-                                className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-white transition-all"
+                                className="absolute top-4 right-4 z-20 w-10 h-10 bg-black/40 text-white rounded-full flex items-center justify-center hover:bg-black/60 transition-all backdrop-blur-md"
                             >
                                 <span className="material-symbols-outlined">close</span>
                             </button>
 
-                            <div className="w-full md:w-1/2 bg-slate-50 p-8 flex items-center justify-center">
-                                {/* Display EDM if available, else Main Image */}
-                                <img
-                                    src={selectedProduct.edmImage || selectedProduct.mainImage}
-                                    alt={selectedProduct.title}
-                                    className="w-full h-auto object-contain rounded-xl shadow-lg"
-                                />
-                            </div>
+                            {/* Scrollable Container for Mobile */}
+                            <div className="flex-1 overflow-y-auto flex flex-col md:flex-row">
+                                {/* Image Section */}
+                                <div className="w-full md:w-1/2 bg-slate-50 p-4 md:p-8 flex items-start justify-center min-h-[40vh] md:min-h-0">
+                                    <img
+                                        src={selectedProduct.edmImage || selectedProduct.mainImage}
+                                        alt={selectedProduct.title}
+                                        className="w-full h-auto object-contain rounded-xl shadow-sm mix-blend-multiply"
+                                    />
+                                </div>
 
-                            <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto">
-                                <h2 className="text-3xl font-black text-slate-900 mb-4">{selectedProduct.title}</h2>
-                                <div className="space-y-6">
-                                    <div>
-                                        <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-2">產品特色</h4>
-                                        <p className="text-slate-600 font-medium leading-relaxed">{selectedProduct.features || selectedProduct.description}</p>
-                                    </div>
-
-                                    {selectedProduct.ingredients && (
+                                {/* Content Section */}
+                                <div className="w-full md:w-1/2 p-6 md:p-10 pb-24 md:pb-10">
+                                    <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-6">{selectedProduct.title}</h2>
+                                    <div className="space-y-6">
                                         <div>
-                                            <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-2">成分</h4>
-                                            <p className="text-slate-500 text-sm leading-relaxed">{selectedProduct.ingredients}</p>
+                                            <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-2">產品特色</h4>
+                                            <p className="text-slate-600 font-medium leading-relaxed whitespace-pre-line">{selectedProduct.features || selectedProduct.description}</p>
                                         </div>
-                                    )}
 
-                                    {selectedProduct.usage && (
-                                        <div>
-                                            <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-2">建議食用方式</h4>
-                                            <p className="text-slate-500 text-sm leading-relaxed">{selectedProduct.usage}</p>
+                                        {selectedProduct.ingredients && (
+                                            <div>
+                                                <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-2">全成分</h4>
+                                                <p className="text-slate-500 text-sm leading-relaxed text-justify">{selectedProduct.ingredients}</p>
+                                            </div>
+                                        )}
+
+                                        {selectedProduct.usage && (
+                                            <div>
+                                                <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-2">建議使用方式</h4>
+                                                <p className="text-primary font-bold text-base leading-relaxed">{selectedProduct.usage}</p>
+                                            </div>
+                                        )}
+
+                                        {/* Fixed bottom button on mobile, inline on desktop */}
+                                        <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-slate-100 md:static md:p-0 md:bg-transparent md:border-0 md:pt-8 md:mt-8">
+                                            <button className="w-full bg-slate-900 hover:bg-black text-white py-4 rounded-xl font-black transition-all shadow-lg md:shadow-none">
+                                                諮詢此產品
+                                            </button>
                                         </div>
-                                    )}
-
-                                    <div className="pt-8 mt-8 border-t border-slate-100">
-                                        <button className="w-full bg-slate-900 hover:bg-black text-white py-4 rounded-xl font-black transition-all">
-                                            諮詢此產品
-                                        </button>
                                     </div>
                                 </div>
                             </div>
