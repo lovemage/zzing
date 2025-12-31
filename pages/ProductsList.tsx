@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PRODUCT_CATALOG } from '../src/data/catalog';
 import { CatalogProduct } from '../types';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,13 @@ import { Link } from 'react-router-dom';
 const ProductsList: React.FC = () => {
     const [selectedProduct, setSelectedProduct] = useState<CatalogProduct | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
+    const [isImageZoomed, setIsImageZoomed] = useState(false);
+
+    useEffect(() => {
+        if (!selectedProduct) {
+            setIsImageZoomed(false);
+        }
+    }, [selectedProduct]);
 
     const filteredProducts = PRODUCT_CATALOG.filter(product =>
         product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -82,7 +89,8 @@ const ProductsList: React.FC = () => {
                                     <img
                                         src={selectedProduct.edmImage || selectedProduct.mainImage}
                                         alt={selectedProduct.title}
-                                        className="w-full max-h-[50vh] md:max-h-none h-auto object-contain rounded-xl shadow-sm mix-blend-multiply"
+                                        className="w-full max-h-[50vh] md:max-h-none h-auto object-contain rounded-xl shadow-sm mix-blend-multiply cursor-zoom-in"
+                                        onClick={() => setIsImageZoomed(true)}
                                     />
                                 </div>
 
@@ -137,6 +145,32 @@ const ProductsList: React.FC = () => {
                                 </Link>
                             </div>
                         </div>
+
+                        {/* Full Screen Image Zoom Modal */}
+                        {isImageZoomed && (
+                            <div
+                                className="fixed inset-0 z-[200] bg-black/95 flex flex-col animate-in fade-in duration-300"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setIsImageZoomed(false);
+                                }}
+                            >
+                                <button
+                                    onClick={() => setIsImageZoomed(false)}
+                                    className="absolute top-4 right-4 z-20 w-12 h-12 bg-white/10 text-white rounded-full flex items-center justify-center hover:bg-white/20 backdrop-blur-md"
+                                >
+                                    <span className="material-symbols-outlined text-2xl">close</span>
+                                </button>
+                                <div className="flex-1 overflow-y-auto p-4 flex items-start justify-center">
+                                    <img
+                                        src={selectedProduct.edmImage || selectedProduct.mainImage}
+                                        alt={selectedProduct.title}
+                                        className="w-full h-auto max-w-4xl object-contain"
+                                        onClick={(e) => e.stopPropagation()}
+                                    />
+                                </div>
+                            </div>
+                        )}
                     </div>
                 )}
 
