@@ -107,7 +107,7 @@ const Home: React.FC = () => {
                 全系列產品
                 <span className="block text-xs text-green-500 mt-1 capitalize">Product Catalog</span>
               </h2>
-              <h3 className="text-4xl font-black text-slate-900">探索我們豐富的產品系列</h3>
+              <h3 className="text-4xl font-black text-slate-900">探索日日瀅產品</h3>
             </div>
             <div className="flex flex-col sm:flex-row gap-6 items-end">
               <Link to="/products_list" className="text-primary font-black flex items-center gap-2 hover:gap-4 transition-all">
@@ -143,7 +143,12 @@ const Home: React.FC = () => {
           100% { transform: translateX(-50%); }
         }
         .animate-marquee {
-          animation: marquee 40s linear infinite;
+          animation: marquee 28s linear infinite;
+        }
+        @media (min-width: 768px) {
+          .animate-marquee {
+            animation: marquee 40s linear infinite;
+          }
         }
         .hover\\:pause-animation:hover {
           animation-play-state: paused;

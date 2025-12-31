@@ -87,7 +87,7 @@ const ProductsList: React.FC = () => {
                                 </div>
 
                                 {/* Content Section */}
-                                <div className="w-full md:w-1/2 p-6 md:p-10 pb-24 md:pb-10">
+                                <div className="w-full md:w-1/2 p-6 md:p-10 md:pb-10">
                                     <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-6">{selectedProduct.title}</h2>
                                     <div className="space-y-6">
                                         <div>
@@ -116,16 +116,25 @@ const ProductsList: React.FC = () => {
                                             </div>
                                         )}
 
-                                        {/* Fixed bottom button on mobile, inline on desktop */}
-                                        <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-slate-100 md:static md:p-0 md:bg-transparent md:border-0 md:pt-8 md:mt-8 z-20">
+                                        {/* Inline button for Desktop */}
+                                        <div className="hidden md:block pt-8 mt-8 border-t border-slate-50">
                                             <Link to="/contact" state={{ productName: selectedProduct.title }} className="block w-full">
-                                                <button className="w-full bg-slate-900 hover:bg-black text-white py-4 rounded-xl font-black transition-all shadow-lg md:shadow-none">
+                                                <button className="w-full bg-slate-900 hover:bg-black text-white py-4 rounded-xl font-black transition-all shadow-none">
                                                     諮詢此產品
                                                 </button>
                                             </Link>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            {/* Mobile Sticky Footer */}
+                            <div className="block md:hidden p-4 bg-white border-t border-slate-100 z-20">
+                                <Link to="/contact" state={{ productName: selectedProduct.title }} className="block w-full">
+                                    <button className="w-full bg-slate-900 hover:bg-black text-white py-4 rounded-xl font-black transition-all shadow-lg">
+                                        諮詢此產品
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
