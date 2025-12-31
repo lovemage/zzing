@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';
 import { PRODUCT_CATALOG } from '../src/data/catalog';
 import { CatalogProduct } from '../types';
+import { Link } from 'react-router-dom';
 
 const ProductsList: React.FC = () => {
     const [selectedProduct, setSelectedProduct] = useState<CatalogProduct | null>(null);
@@ -111,9 +111,11 @@ const ProductsList: React.FC = () => {
 
                                         {/* Fixed bottom button on mobile, inline on desktop */}
                                         <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-slate-100 md:static md:p-0 md:bg-transparent md:border-0 md:pt-8 md:mt-8 z-20">
-                                            <button className="w-full bg-slate-900 hover:bg-black text-white py-4 rounded-xl font-black transition-all shadow-lg md:shadow-none">
-                                                諮詢此產品
-                                            </button>
+                                            <Link to="/contact" state={{ productName: selectedProduct.title }} className="block w-full">
+                                                <button className="w-full bg-slate-900 hover:bg-black text-white py-4 rounded-xl font-black transition-all shadow-lg md:shadow-none">
+                                                    諮詢此產品
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
