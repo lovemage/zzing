@@ -78,11 +78,11 @@ const ProductsList: React.FC = () => {
                             {/* Scrollable Container for Mobile */}
                             <div className="flex-1 overflow-y-auto flex flex-col md:flex-row">
                                 {/* Image Section */}
-                                <div className="w-full md:w-1/2 bg-slate-50 p-4 md:p-8 flex items-start justify-center min-h-[40vh] md:min-h-0">
+                                <div className="w-full md:w-1/2 bg-slate-50 p-4 md:p-8 flex items-start justify-center flex-shrink-0">
                                     <img
                                         src={selectedProduct.edmImage || selectedProduct.mainImage}
                                         alt={selectedProduct.title}
-                                        className="w-full h-auto object-contain rounded-xl shadow-sm mix-blend-multiply"
+                                        className="w-full max-h-[50vh] md:max-h-none h-auto object-contain rounded-xl shadow-sm mix-blend-multiply"
                                     />
                                 </div>
 
@@ -111,7 +111,7 @@ const ProductsList: React.FC = () => {
 
                                         {selectedProduct.usage && (
                                             <div>
-                                                <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-2">建議使用方式</h4>
+                                                <h4 className="text-sm font-black text-green-500 uppercase tracking-widest mb-2">建議使用方式</h4>
                                                 <p className="text-slate-600 font-bold text-base leading-relaxed">{selectedProduct.usage}</p>
                                             </div>
                                         )}
