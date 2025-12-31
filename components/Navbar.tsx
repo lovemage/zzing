@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
     '關於我們': 'About Us',
     '代工服務': 'Services',
     '產品案例': 'Cases',
-    '原料中心': 'Products',
+    '產品型錄': 'Products Menu',
     '客戶支援': 'Support',
     '聯絡我們': 'Contact',
   };

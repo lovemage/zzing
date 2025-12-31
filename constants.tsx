@@ -6,7 +6,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: '關於我們', path: '/about' },
   { label: '代工服務', path: '/services' },
   { label: '產品案例', path: '/cases' },
-  { label: '原料中心', path: '/products' },
+  { label: '產品型錄', path: '/products_list' },
   { label: '客戶支援', path: '/support' },
   { label: '聯絡我們', path: '/contact' },
 ];

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PRODUCTS, SERVICE_STEPS } from '../constants';
+import { PRODUCT_CATALOG } from '../src/data/catalog';
 
 const Home: React.FC = () => {
   return (
@@ -103,36 +104,51 @@ const Home: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
             <div className="space-y-4">
               <h2 className="text-primary text-sm font-black tracking-widest uppercase">
-                高端日本原料
-                <span className="block text-xs text-green-500 mt-1 capitalize">Premium Japanese Ingredients</span>
+                全系列產品
+                <span className="block text-xs text-green-500 mt-1 capitalize">Product Catalog</span>
               </h2>
-              <h3 className="text-4xl font-black text-slate-900">選自純淨源頭，打造極致體感</h3>
+              <h3 className="text-4xl font-black text-slate-900">探索我們豐富的產品系列</h3>
             </div>
             <div className="flex flex-col sm:flex-row gap-6 items-end">
-              <Link to="/products" className="text-slate-500 font-bold flex items-center gap-2 hover:text-primary transition-all">
-                日本原料中心 <span className="material-symbols-outlined">arrow_forward</span>
-              </Link>
               <Link to="/products_list" className="text-primary font-black flex items-center gap-2 hover:gap-4 transition-all">
                 查看完整產品型錄 <span className="material-symbols-outlined">menu_book</span>
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {PRODUCTS.map(p => (
-              <div key={p.id} className="group cursor-pointer">
-                <div className="rounded-2xl overflow-hidden aspect-[4/5] bg-slate-100 mb-4 relative shadow-md">
-                  <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-primary shadow-sm">
-                    {p.category}
+
+          {/* Marquee Container */}
+          <div className="relative w-full overflow-hidden group">
+            <div className="flex gap-6 animate-marquee hover:pause-animation">
+              {/* Duplicate list for seamless loop */}
+              {[...PRODUCT_CATALOG, ...PRODUCT_CATALOG].map((p, index) => (
+                <Link to="/products_list" key={`${p.id}-${index}`} className="flex-shrink-0 w-[280px]">
+                  <div className="rounded-2xl overflow-hidden aspect-[4/5] bg-slate-50 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 relative group/card">
+                    <img
+                      src={p.mainImage}
+                      alt={p.title}
+                      className="w-full h-full object-contain p-4 mix-blend-multiply group-hover/card:scale-110 transition-transform duration-500"
+                    />
                   </div>
-                </div>
-                <h4 className="text-lg font-black text-slate-800 group-hover:text-primary transition-colors">{p.name}</h4>
-                <p className="text-slate-500 text-sm font-medium">{p.origin}</p>
-              </div>
-            ))}
+                  <h4 className="mt-4 text-lg font-black text-slate-800 group-hover/card:text-primary transition-colors truncate">{p.title}</h4>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 40s linear infinite;
+        }
+        .hover\\:pause-animation:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
 
       {/* Process Section */}
       <section className="bg-slate-900 py-32 text-white overflow-hidden relative">
