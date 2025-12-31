@@ -1,0 +1,8 @@
+{
+  "name": "日日瀅生醫 - 高端保健食品代工專家",
+  "description": "日日瀅生醫致力於提供高品質的保健食品代工服務，結合專業研發與創新技術，為您的品牌創造最大價值。專精於日本進口原料、OEM/ODM 製造與專業生物醫學解決方案。",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="keywords"
+    content="Medick Responsive web template, Bootstrap Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+  <title>日日瀅生醫 | 專業保健食品代工服務 | 首頁</title>
+  <link rel="icon" type="image/png" href="assets/icons/like.png">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="assets/css/style-starter.css">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif !important;
+    }
+    .banner-w3l-main {
+      position: relative;
+      overflow: hidden;
+    }
+    .banner-w3l-main video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .banner-w3l-main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 77, 107, 0.6) 0%, rgba(0, 163, 224, 0.4) 100%);
+      z-index: 1;
+    }
+    .banner-w3l-main .w3l-banner-content,
+    .banner-w3l-main .home-services {
+      position: relative;
+      z-index: 2;
+    }
+    /* 配方卡片樣式 - 現代化設計 */
+    .formula-card {
+      position: relative;
+      height: 380px;
+      overflow: hidden;
+      border-radius: 24px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(0, 163, 224, 0.15);
+      background: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+    .formula-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 163, 224, 0.25);
+    }
+    .formula-card-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      transition: transform 0.5s ease;
+    }
+    .formula-card:hover .formula-card-bg {
+      transform: scale(1.1);
+    }
+    .formula-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0, 59, 92, 0.9));
+      z-index: 1;
+    }
+    .formula-card a {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      height: 100%;
+      padding: 40px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .formula-icon {
+      font-size: 32px;
+      color: #fff;
+      margin-bottom: auto;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(5px);
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-top: 10px;
+    }
+    .formula-card h4 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .formula-card .subtitle {
+      font-size: 14px;
+      color: #00E5FF;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .formula-card .description {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+      margin: 0;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      height: 0;
+    }
+    .formula-card:hover .description {
+      opacity: 1;
+      transform: translateY(0);
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    /* 服務卡片毛玻璃效果 - 設計感升級 */
+    .home-services .box-wrap {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 20px;
+      padding: 40px 30px;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      height: 100%;
+    }
+
+    .home-services .box-wrap:hover {
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 163, 224, 0.2);
+      border-color: #00A3E0;
+    }
+    
+    .home-services .box-wrap .icon {
+        background: rgba(0, 163, 224, 0.1);
+        color: #00A3E0;
+    }
+    
+    .home-services .box-wrap:hover .icon {
+        background: #00A3E0;
+        color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header-w3l">
+  <!--header-->
+  <header id="site-header" class="header-w3l fixed-top">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg stroke">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/images-edit/logo-1.png" alt="日日瀅生醫" style="height: 45px;">
+        </a>
+        <!-- if logo is image enable this   
+            <a class="navbar-brand" href="#index.html">
+                <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+            </a> -->
+        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+          data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+          <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+          </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mx-lg-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">首頁</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">關於我們</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">代工服務</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">產品案例</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">聯絡我們</a>
+            </li>
+
+          </ul>
+
+        </div>
+        <!-- toggle switch for light and dark theme -->
+        <div class="mobile-position">
+          <nav class="navigation">
+            <div class="theme-switch-wrapper">
+              <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="mode-container">
+                  <i class="gg-sun"></i>
+                  <i class="gg-moon"></i>
+                </div>
+              </label>
+            </div>
+          </nav>
+        </div>
+        <!-- //toggle switch for light and dark theme -->
+      </nav>
+    </div>
+  </header>
+</div>
+  <!-- //header -->
+  <!--/w3l-banner-content-->
+  <div class="banner-w3l-main">
+    <video autoplay loop muted playsinline>
+      <source src="assets/images-edit/fillmechine.mp4" type="video/mp4">
+    </video>
+    <div class="w3l-banner-content">
+      <div class="container">
+        <div class="bannerhny-info text-center">
+          <h6 class="title-subhny mb-2">專業 • 創新 • 品質</h6>
+          <h3 class="mb-4">為您的品牌打造<br>頂級保健食品</h3>
+          <p class="mb-5 text-white mx-auto" style="opacity: 0.9; font-size: 1.25rem; max-width: 700px;">結合尖端生技與匠心工藝，提供一站式 OEM/ODM 代工服務，助您搶佔市場先機。</p>
+          <div class="d-flex justify-content-center align-items-center">
+            <a class="btn btn-style btn-primary mt-4 mr-3" href="contact.html">
+              立即諮詢 <span class="fa fa-arrow-right ml-2" style="font-size: 0.9em;"></span>
+            </a>
+            <a class="btn btn-style btn-white mt-4" href="services.html">
+              探索服務
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- home page block1 -->
+    <section class="home-services pt-lg-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="box-wrap">
+              <div class="box-wrap-grid">
+                <div class="icon">
+                  <span class="fa fa-users"></span>
+                </div>
+                <div class="info">
+                  <p>EXPERTISE</p>
+                  <h4><a href="#url">專業研發團隊</a></h4>
+                </div>
+              </div>
+              <p class="mt-3">擁有專業研發團隊，熟悉各類營養素、植物萃取、益生菌等熱門原料，為您打造獨具競爭力的產品。</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 mt-md-0 mt-4">
+            <div class="box-wrap">
+              <div class="box-wrap-grid">
+                <div class="icon">
+                  <span class="fa fa-shield"></span>
+                </div>
+                <div class="info">
+                  <p>QUALITY</p>
+                  <h4><a href="#url">國際認證品質</a></h4>
+
+                </div>
+              </div>
+              <p class="mt-3">嚴格遵循國際標準，擁有 FSSC 22000、ISO 22000、HACCP、GMP 等多項認證，品質安全有保障。</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-4">
+            <div class="box-wrap">
+              <div class="box-wrap-grid">
+                <div class="icon">
+                  <span class="fa fa-globe"></span>
+                </div>
+                <div class="info">
+                  <p>SERVICE</p>
+                  <h4><a href="#url">一站式整合服務</a></h4>
+
+                </div>
+              </div>
+              <p class="mt-3">從原料篩選、配方設計、劑型開發到包裝設計，提供全方位 OEM/ODM 代工解決方案，讓您省心省力。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- //home page block1 -->
+  </div>
+  <!--//w3l-banner-content-->
+
+  <!-- banner bottom shape -->
+  <div class="position-relative">
+    <div class="shape overflow-hidden">
+      <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+      </svg>
+    </div>
+  </div>
+  <!-- banner bottom shape -->
+
+  <!--/w3l-content-1-->
+  <div class="w3l-content-1 py-5">
+    <div class="container py-lg-5 py-md-4 py-2">
+      <div class="row w3l-content-inf mt-lg-5 pt-lg-5">
+        <div class="col-lg-5 w3l-content-left mt-lg-4">
+          <h6 class="title-subhny mb-2">關於我們</h6>
+          <h3 class="title-w3l mb-4">打造健康新世代<br>我們是您最堅實的<br>代工夥伴</h3>
+        </div>
+        <div class="col-lg-7 w3l-content-right pl-lg-5 mt-lg-4">
+          <p class="para-sub pr-lg-5 mt-md-4 mt-3 mx-auto" style="font-size: 1.15rem; line-height: 1.8;">
+            日日瀅生醫專注於保健食品的研發與製造，結合尖端生技與市場洞察，為您提供從原料選擇、配方設計、劑型開發、包裝設計到法規諮詢的一站式整合服務。
+          </p>
+          <p class="para-sub pr-lg-5 mt-md-4 mt-3 mx-auto" style="font-size: 1.15rem; line-height: 1.8;">
+            我們擁有專業研發團隊，採用國際認證製程，支援多種劑型開發，致力於提供客製化解決方案，協助您的品牌快速進入市場，建立競爭優勢。
+          </p>
+          <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="about.html">
+            深入了解 <span class="fa fa-angle-right ml-2"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--//w3l-content-1-->
+  <!-- /w3l-content-2-->
+  <section class="w3l-content-2 py-5" style="background-color: #f8f9fa;">
+    <div class="container py-md-5 py-4">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h6 class="title-subhny mb-2">核心優勢</h6>
+          <h3 class="title-w3l mb-4">為什麼選擇日日瀅生醫？</h3>
+          <p class="para-sub mx-auto">我們不僅是代工廠，更是您的品牌孵化器。從概念到成品，我們提供全方位的專業支持。</p>
+        </div>
+      </div>
+      <div class="row whybox-wrap">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="whybox-wrap-grid h-100 p-4 bg-white rounded shadow-sm text-center">
+            <div class="icon mb-3 mx-auto">
+              <span class="fa fa-flask" style="font-size: 2.5rem; color: var(--primary-color);"></span>
+            </div>
+            <div class="info">
+              <h4 class="mb-3"><a href="#url">創新配方研發</a></h4>
+              <p>掌握市場趨勢，開發獨家機能配方，助您打造差異化產品，搶佔市場先機。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="whybox-wrap-grid h-100 p-4 bg-white rounded shadow-sm text-center">
+            <div class="icon mb-3 mx-auto">
+              <span class="fa fa-cogs" style="font-size: 2.5rem; color: var(--primary-color);"></span>
+            </div>
+            <div class="info">
+              <h4 class="mb-3"><a href="#url">先進製程技術</a></h4>
+              <p>引進自動化生產設備，嚴格控管生產流程，確保產品品質穩定、交期準時。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="whybox-wrap-grid h-100 p-4 bg-white rounded shadow-sm text-center">
+            <div class="icon mb-3 mx-auto">
+              <span class="fa fa-check-circle" style="font-size: 2.5rem; color: var(--primary-color);"></span>
+            </div>
+            <div class="info">
+              <h4 class="mb-3"><a href="#url">嚴格品質把關</a></h4>
+              <p>通過多項國際認證，建立完善的品管體系，讓您的產品安全無虞，消費者更安心。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- //w3l-content-2-->
+  <!-- /w3l-content-4-->
+  <section class="w3l-content-4 py-5" id="features">
+    <div class="content-4-main py-lg-5 py-md-4">
+      <div class="container">
+        <div class="title-content text-center">
+          <h6 class="title-subhny">專業配方研發</h6>
+          <h3 class="title-w3l mb-sm-5 mb-4 pb-lg-2">機能配方與素材</h3>
+        </div>
+        <div class="row mt-5" id="formulas-container">
+          <!-- 配方卡片將通過JavaScript動態載入 -->
+          <div class="col-12 text-center" id="formulas-loading">
+            <p>載入配方資料中...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- //w3l-content-4-->
+
+  <!-- stats -->
+  <section class="w3l-stats py-lg-0 py-5" id="stats">
+    <div class="gallery-inner container py-lg-0 py-3">
+      <div class="row stats-con">
+        <div class="col-lg-3 col-6 stats_info counter_grid">
+          <span class="fa fa-flask"></span>
+          <p class="counter">500</p>
+          <h4>獨家配方</h4>
+        </div>
+        <div class="col-lg-3 col-6 stats_info counter_grid1">
+          <span class="fa fa-industry"></span>
+          <p class="counter">1000</p>
+          <h4>成功代工</h4>
+        </div>
+        <div class="col-lg-3 col-6 stats_info counter_grid mt-lg-0 mt-5">
+          <span class="fa fa-smile-o"></span>
+          <p class="counter">98</p>
+          <h4>客戶滿意度(%)</h4>
+        </div>
+        <div class="col-lg-3 col-6 stats_info counter_grid2 mt-lg-0 mt-5">
+          <span class="fa fa-certificate"></span>
+          <p class="counter">20</p>
+          <h4>國際認證</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- //stats -->
+  <!--/Blog-Posts-->
+  <section class="w3l-blog py-5" id="blog">
+    <div class="container py-lg-5 py-md-4 py-2">
+      <div class="title-content text-center">
+        <h6 class="title-subhny text-center">專業代工</h6>
+        <h3 class="title-w3l pb-sm-o pb-2 text-center">精選產品案例</h3>
+        <p class="para-sub text-center mt-3 mx-auto">展示我們最新的代工成果，每個案例都體現了我們在配方研發、生產製造和品質控管方面的專業實力。</p>
+      </div>
+      <div id="cases-list" class="row inner-sec-w3ls"></div>
+      <script>
+        (function() {
+          fetch('content/cases.json?_=' + Date.now())
+            .then(function(res){ return res.json(); })
+            .then(function(data){
+              var wrap = document.getElementById('cases-list');
+              if(!wrap || !data || !data.items) return;
+              var html = data.items.slice(0, 6).map(function(item){
+                // 生成動態頁面連結
+                var dynamicUrl = 'case-detail.html?id=' + encodeURIComponent(item.category || item.title);
+                // 如果有原始 URL，優先使用原始 URL
+                var url = item.url || dynamicUrl;
+
+                return '\n<div class="col-lg-4 col-md-6 about-in blog-grid-info text-left mt-5">\n' +
+                  '  <div class="card img">\n' +
+                  '    <div class="card-body img">\n' +
+                  '      <a href="' + url + '" class="d-block">\n' +
+                  '        <img src="' + item.image + '" alt="' + (item.title||'') + '" class="img-fluid radius-image">\n' +
+                  '      </a>\n' +
+                  '      <div class="blog-des mt-4">\n' +
+                  '        <h6 class="card-cap mb-2"><a href="' + url + '">' + (item.category||'產品案例') + '</a></h6>\n' +
+                  '        <h5 class="card-title mb-2"><a href="' + url + '">' + (item.title||'') + '</a></h5>\n' +
+                  '        <ul class="admin-post mb-3">\n' +
+                  '          <li><span class="fa fa-calendar"></span> ' + (item.date || '') + '</li>\n' +
+                  '          <li><span class="fa fa-tag"></span> ' + (item.category || '') + '</li>\n' +
+                  '        </ul>\n' +
+                  '        <p>' + (item.excerpt||'') + '</p>\n' +
+                  '      </div>\n' +
+                  '    </div>\n' +
+                  '  </div>\n' +
+                  '</div>';
+              }).join('');
+              wrap.innerHTML = html;
+            })
+            .catch(function(err){ console.warn('Load cases failed', err); });
+        })();
+      </script>
+    </div>
+    </div>
+  </section>
+  <!--//Blog-Posts-->
+  <!-- /w3l-content-3-->
+  <section class="w3l-content-3 py-5">
+    <!-- /content-6-section -->
+    <div class="content-3-info py-3">
+      <div class="container py-lg-4">
+        <div class="row appointment-formw3">
+          <div class="col-lg-6 welcome-left">
+            <h6 class="title-subhny mb-2">免費諮詢</h6>
+            <h3 class="title-w3l two mb-3">預約諮詢服務</h3>
+            <p class="mb-3">
+              我們致力於為所有客戶提供最優質的代工服務，歡迎新客戶體驗我們的專業服務。</p>
+            <p>專業團隊將為您提供完整的產品開發諮詢，協助您制定最適合的代工方案。</p>
+            <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="#">
+              聯絡我們</a>
+          </div>
+          <div class="col-lg-6 free-appointment pl-lg-5 mt-5">
+            <div class="appointment-form">
+              <form name="appointment" method="post" netlify>
+                <div class="fields-grid">
+                  <div class="styled-input">
+
+                    <div class="appointment-form-field">
+
+                      <input type="text" name="fullname" placeholder="姓名" required="">
+                    </div>
+                  </div>
+                  <div class="styled-input">
+
+                    <div class="appointment-form-field">
+
+                      <input type="email" name="email" placeholder="電子郵件" required="">
+                    </div>
+                  </div>
+                  <div class="styled-input">
+
+                    <div class="appointment-form-field">
+
+                      <input type="text" name="phone" placeholder="聯絡電話" required="">
+                    </div>
+                  </div>
+
+                  <div class="styled-input">
+
+                    <div class="appointment-form-field">
+
+                      <input type="date" name="date" placeholder="預約日期" required="">
+                    </div>
+                  </div>
+                  <div class="styled-input">
+
+                    <div class="appointment-form-field">
+
+                      <select name="department" required="">
+                        <option value="">代工服務類型*</option>
+                        <option value="膠囊代工">膠囊代工</option>
+                        <option value="錠劑代工">錠劑代工</option>
+                        <option value="粉劑代工">粉劑代工</option>
+                        <option value="果凍代工">果凍代工</option>
+                        <option value="口含錠代工">口含錠代工</option>
+                        <option value="液態包代工">液態包代工</option>
+                        <option value="其他">其他</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="styled-input">
+
+                    <div class="appointment-form-field">
+
+                      <select name="manager" required="">
+                        <option value="">選擇專案經理</option>
+                        <option value="王專員">王專員</option>
+                        <option value="李專員">李專員</option>
+                        <option value="張專員">張專員</option>
+                        <option value="陳專員">陳專員</option>
+                        <option value="林專員">林專員</option>
+                        <option value="黃專員">黃專員</option>
+                        <option value="劉專員">劉專員</option>
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="appointment-btn text-lg-right">
+                  <button type="submit" class="btn btn-style btn-primary mt-4">預約諮詢</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- //w3l-content-3-->
+  <!-- testimonials section -->
+  <section class="w3l-clients w3l-test pb-5" id="testimonials">
+    <div class="midd-w3 py-5">
+      <div class="container py-lg-5 py-md-4 pt-2 pb-lg-5">
+        <div class="title-content text-center">
+          <h6 class="title-subhny text-center">客戶見證</h6>
+          <h3 class="title-w3l mb-sm-5 mb-4 pb-sm-o pb-2 text-center">客戶怎麼說</h3>
+        </div>
+        <div id="owl-demo2" class="owl-carousel owl-theme mt-4 py-md-2 mb-md-4">
+          <!-- 客戶見證將通過 JavaScript 動態載入 -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- //testimonials section -->
+
+  <!-- footer -->
+  <section class="w3l-footer-29-main">
+    <div class="footer-29 py-5">
+      <div class="container py-lg-4">
+        <div class="row footer-top-29">
+          <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
+            <div class="footer-logo mb-3">
+              <a class="navbar-brand" href="index.html">日日瀅生醫</a>
+            </div>
+            <p>日日瀅生醫致力於提供高品質的保健食品代工服務，結合專業研發與創新技術，為您的品牌創造最大價值。</p>
+            <ul class="mt-3">
+              <li><a href="tel:04-22017588"><span class="fa fa-phone"></span> 04-22017588</a></li>
+              <li><a href="mailto:service@ririyingbio.com" class="mail"><span class="fa fa-envelope-open-o"></span>
+                  service@ririyingbio.com</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-sm-0 mt-5">
+
+            <ul>
+             <h6 class="footer-title-29">公司資訊</h6>
+              <li><a href="about.html">關於我們</a></li>
+              <li><a href="blog.html">產品案例</a></li>
+              <li><a href="services.html">代工服務</a></li>
+              <li><a href="contact.html">聯絡我們</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-3 mt-lg-0 mt-5">
+            <h6 class="footer-title-29">服務連結</h6>
+            <ul>
+              <li><a href="terms.html">服務條款</a></li>
+              <li><a href="privacy.html">隱私政策</a></li>
+              <li><a href="support.html">客戶支援</a></li>
+            </ul>
+
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
+            <h6 class="footer-title-29">訂閱電子報</h6>
+            <p>輸入您的電子郵件，接收最新的產品資訊、代工服務更新和特別優惠。</p>
+
+            <form name="subscribe" method="post" netlify class="subscribe">
+              <input type="email" name="email" placeholder="您的電子郵件地址" required="">
+              <button type="submit" class="btn btn-style btn-primary w-100 mt-3">訂閱</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- //footer -->
+
+  <!-- copyright -->
+  <section class="w3l-copyright">
+    <div class="container">
+      <div class="row bottom-copies">
+        <p class="col-lg-8 copy-footer-29">Copyright &copy; 2025 日日瀅生醫 Ri Ri Ying Bio-Medical Co., Ltd. All Rights Reserved.</p>
+
+        <div class="col-lg-4 main-social-footer-29">
+          <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+          <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+          <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+          <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+      &#10548;
+    </button>
+    <script>
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction()
+      };
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("movetop").style.display = "block";
+        } else {
+          document.getElementById("movetop").style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+    <!-- /move top -->
+  </section>
+  <!-- //copyright -->
+  <!--//footer-->
+  <!-- Template JavaScript -->
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/theme-change.js"></script>
+  <!-- owl carousel -->
+  <script src="assets/js/owl.carousel.js"></script>
+  <!-- script for tesimonials carousel slider -->
+  <script>
+    // 載入客戶見證數據
+    function loadTestimonials() {
+      fetch('content/testimonials.json?_=' + Date.now())
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          var carousel = document.getElementById('owl-demo2');
+          if (!carousel || !data || !data.items) return;
+
+          // 過濾已發布的見證並按順序排序
+          var publishedItems = data.items
+            .filter(function(item) { return item.published !== false; })
+            .sort(function(a, b) { return (a.order || 0) - (b.order || 0); });
+
+          var html = publishedItems.map(function(item) {
+            return '<div class="item">' +
+              '<div class="testimonial-content">' +
+                '<div class="testimonial">' +
+                  '<blockquote>' +
+                    '<q>' + (item.content || '') + '</q>' +
+                  '</blockquote>' +
+                '</div>' +
+                '<div class="bottom-info mt-4">' +
+                  '<a class="comment-img" href="#url">' +
+                    '<img src="' + (item.avatar || '/assets/images/placeholder-avatar.png') + '" class="img-responsive" alt="' + (item.name || '') + '">' +
+                  '</a>' +
+                  '<div class="people-info align-self">' +
+                    '<h3>' + (item.name || '') + '</h3>' +
+                    '<p class="identity">' + (item.company || '') + '</p>' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>';
+          }).join('');
+
+          carousel.innerHTML = html;
+
+          // 初始化 owl carousel
+          $("#owl-demo2").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+              0: {
+                items: 1,
+                nav: false
+              },
+              736: {
+                items: 1,
+                nav: false
+              },
+              991: {
+                items: 2,
+                margin: 30,
+                nav: false
+              },
+              1080: {
+                items: 3,
+                nav: false
+              }
+            }
+          });
+        })
+        .catch(function(err) {
+          console.warn('Load testimonials failed', err);
+          // 如果載入失敗，仍然初始化空的 carousel
+          $("#owl-demo2").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+              0: { items: 1, nav: false },
+              736: { items: 1, nav: false },
+              991: { items: 2, margin: 30, nav: false },
+              1080: { items: 3, nav: false }
+            }
+          });
+        });
+    }
+
+    $(document).ready(function () {
+      loadTestimonials();
+    });
+  </script>
+  <!-- //script for tesimonials carousel slider -->
+  <!-- stats number counter-->
+  <script src="assets/js/jquery.waypoints.min.js"></script>
+  <script src="assets/js/jquery.countup.js"></script>
+  <script>
+    $('.counter').countUp();
+  </script>
+  <!-- //stats number counter -->
+  <!-- disable body scroll which navbar is in active -->
+  <script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- disable body scroll which navbar is in active -->
+
+  <!-- 動態載入配方卡片 -->
+  <script>
+  (function() {
+    // 載入配方資料
+    fetch('content/formulas.json?_=' + Date.now())
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('formulas-container');
+        const loading = document.getElementById('formulas-loading');
+
+        if (!container || !data.items) {
+          console.error('無法載入配方資料');
+          return;
+        }
+
+        // 按順序排序並過濾已發布的配方
+        const publishedFormulas = data.items
+          .filter(item => item.published)
+          .sort((a, b) => a.order - b.order);
+
+        // 生成配方卡片HTML
+        const formulasHtml = publishedFormulas.map(formula => `
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="formula-card">
+              <img src="${formula.background_image}" alt="${formula.title}" class="formula-card-bg">
+              <a href="${formula.page_url}">
+                <div class="formula-icon">
+                  <span class="fa ${formula.icon}"></span>
+                </div>
+                <h4>${formula.title}</h4>
+                <p class="subtitle">${formula.subtitle}</p>
+                <p class="description">${formula.description}</p>
+              </a>
+            </div>
+          </div>
+        `).join('');
+
+        // 更新容器內容
+        container.innerHTML = formulasHtml;
+
+        // 隱藏載入提示
+        if (loading) {
+          loading.style.display = 'none';
+        }
+      })
+      .catch(err => {
+        console.error('載入配方資料失敗:', err);
+        const container = document.getElementById('formulas-container');
+        if (container) {
+          container.innerHTML = `
+            <div class="col-12 text-center">
+              <p class="text-muted">載入配方資料失敗，請重新整理頁面</p>
+            </div>
+          `;
+        }
+      });
+  })();
+  </script>
+  <!-- //動態載入配方卡片 -->
+
+  <!--/MENU-JS-->
+  <script>
+    $(window).on("scroll", function () {
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 80) {
+        $("#site-header").addClass("nav-fixed");
+      } else {
+        $("#site-header").removeClass("nav-fixed");
+      }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+      $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+      $(window).on("resize", function () {
+        if ($(window).width() > 991) {
+          $("header").removeClass("active");
+        }
+      });
+    });
+  </script>
+  <!--//MENU-JS-->
+
+  <!-- Netlify Identity Widget -->
+  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <script src="assets/js/bootstrap.min.js"></script>
+
+  <!-- Netlify Identity 邀請處理 -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+
+</body>
+
+</html>

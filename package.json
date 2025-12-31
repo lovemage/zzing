@@ -1,19 +1,26 @@
 {
-  "name": "ririyingbio-website",
-  "version": "1.0.0",
-  "description": "日日瀅生醫有限公司官方網站",
+  "name": "日日瀅生醫---高端保健食品代工專家",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "sync-cases": "node scripts/sync-cases.js",
-    "build": "npm run sync-cases",
-    "prebuild": "npm run sync-cases"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "keywords": [
-    "healthcare",
-    "oem",
-    "manufacturing"
-  ],
-  "author": "日日瀅生醫有限公司",
-  "license": "UNLICENSED",
-  "private": true
+  "dependencies": {
+    "@google/genai": "^1.34.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-router-dom": "^7.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
 }
-
