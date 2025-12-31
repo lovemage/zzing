@@ -20,8 +20,12 @@ const Navbar: React.FC = () => {
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-3 group">
             <img src="/assets/images-edit/logo-1.png" alt="日日瀅生醫" className="h-10 w-auto" />
+            <div className="flex flex-col">
+              <span className="text-lg font-black text-slate-900 tracking-tight">日日瀅生醫</span>
+              <span className="text-xs text-green-500 font-medium">ririyingbio.com</span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
