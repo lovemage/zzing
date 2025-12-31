@@ -11,8 +11,8 @@ const Navbar: React.FC = () => {
     '首頁': 'Home',
     '關於我們': 'About Us',
     '代工服務': 'Services',
-    '產品案例': 'Cases',
-    '產品型錄': 'Products Menu',
+    '產品案例': 'Case Study',
+    '產品型錄': 'Catalog',
     '客戶支援': 'Support',
     '聯絡我們': 'Contact',
   };
@@ -38,8 +38,8 @@ const Navbar: React.FC = () => {
                   }`}
               >
                 <div className="flex flex-col items-center">
-                  <span>{item.label}</span>
-                  <span className="text-xs text-green-500">{EN_LABELS[item.label] ?? ''}</span>
+                  <span className="text-base font-bold tracking-[0.1em]">{item.label}</span>
+                  <span className="text-[10px] text-green-500 font-medium uppercase tracking-wider scale-95 origin-center">{EN_LABELS[item.label] ?? ''}</span>
                 </div>
               </Link>
             ))}

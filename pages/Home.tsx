@@ -22,6 +22,9 @@ const Home: React.FC = () => {
               </h1>
               <p className="text-lg text-slate-500 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
                 結合尖端生技與匠心工藝，提供一站式 OEM/ODM 代工服務，助您搶佔市場先機。
+                <span className="block text-sm text-green-500 mt-2 font-normal">
+                  Combining cutting-edge biotechnology with craftsmanship, providing one-stop OEM/ODM services to help you seize market opportunities.
+                </span>
               </p>
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
                 <Link to="/contact">
