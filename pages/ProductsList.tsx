@@ -95,10 +95,17 @@ const ProductsList: React.FC = () => {
                                             <p className="text-slate-600 font-medium leading-relaxed whitespace-pre-line">{selectedProduct.features || selectedProduct.description}</p>
                                         </div>
 
+                                        {selectedProduct.mainIngredients && (
+                                            <div>
+                                                <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-2">主成分</h4>
+                                                <p className="text-slate-600 font-bold leading-relaxed">{selectedProduct.mainIngredients}</p>
+                                            </div>
+                                        )}
+
                                         {selectedProduct.ingredients && (
                                             <div>
                                                 <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-2">全成分</h4>
-                                                <p className="text-slate-500 text-sm leading-relaxed text-justify">{selectedProduct.ingredients}</p>
+                                                <p className="text-slate-500 text-sm leading-relaxed text-justify break-all">{selectedProduct.ingredients}</p>
                                             </div>
                                         )}
 

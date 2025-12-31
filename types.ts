@@ -59,6 +59,7 @@ export interface CatalogProduct {
   title: string;
   description: string;
   features: string;
+  mainIngredients?: string;
   ingredients: string;
   usage: string;
   mainImage: string;
