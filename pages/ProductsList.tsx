@@ -91,27 +91,27 @@ const ProductsList: React.FC = () => {
                                     <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-6">{selectedProduct.title}</h2>
                                     <div className="space-y-6">
                                         <div>
-                                            <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-2">產品特色</h4>
+                                            <h4 className="inline-block text-sm font-black text-white bg-green-500 rounded-full px-4 py-1.5 mb-3">產品特色</h4>
                                             <p className="text-slate-600 font-medium leading-relaxed whitespace-pre-line">{selectedProduct.features || selectedProduct.description}</p>
                                         </div>
 
                                         {selectedProduct.mainIngredients && (
                                             <div>
-                                                <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-2">主成分</h4>
+                                                <h4 className="inline-block text-sm font-black text-white bg-green-500 rounded-full px-4 py-1.5 mb-3">主成分</h4>
                                                 <p className="text-slate-600 font-bold leading-relaxed">{selectedProduct.mainIngredients}</p>
                                             </div>
                                         )}
 
                                         {selectedProduct.ingredients && (
                                             <div>
-                                                <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-2">全成分</h4>
+                                                <h4 className="inline-block text-sm font-black text-white bg-green-500 rounded-full px-4 py-1.5 mb-3">全成分</h4>
                                                 <p className="text-slate-500 text-sm leading-relaxed text-justify break-all">{selectedProduct.ingredients}</p>
                                             </div>
                                         )}
 
                                         {selectedProduct.usage && (
                                             <div>
-                                                <h4 className="text-sm font-black text-green-500 uppercase tracking-widest mb-2">建議使用方式</h4>
+                                                <h4 className="inline-block text-sm font-black text-white bg-green-500 rounded-full px-4 py-1.5 mb-3">建議使用方式</h4>
                                                 <p className="text-slate-600 font-bold text-base leading-relaxed">{selectedProduct.usage}</p>
                                             </div>
                                         )}
