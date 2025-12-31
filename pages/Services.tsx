@@ -48,12 +48,12 @@ const Services: React.FC = () => {
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-6 pt-12">
-                                <img src="https://picsum.photos/seed/s1/400/500" className="rounded-3xl shadow-lg w-full object-cover" alt="Service 1" />
-                                <img src="https://picsum.photos/seed/s2/400/300" className="rounded-3xl shadow-lg w-full object-cover" alt="Service 2" />
+                                <img src="/assets/images-edit/1.JPG" className="rounded-3xl shadow-lg w-full object-cover" alt="Service 1" />
+                                <img src="/assets/images-edit/2.JPG" className="rounded-3xl shadow-lg w-full object-cover" alt="Service 2" />
                             </div>
                             <div className="space-y-6">
-                                <img src="https://picsum.photos/seed/s3/400/300" className="rounded-3xl shadow-lg w-full object-cover" alt="Service 3" />
-                                <img src="https://picsum.photos/seed/s4/400/500" className="rounded-3xl shadow-lg w-full object-cover" alt="Service 4" />
+                                <img src="/assets/images-edit/3.JPG" className="rounded-3xl shadow-lg w-full object-cover" alt="Service 3" />
+                                <img src="/assets/images-edit/4.JPG" className="rounded-3xl shadow-lg w-full object-cover" alt="Service 4" />
                             </div>
                         </div>
                     </div>
